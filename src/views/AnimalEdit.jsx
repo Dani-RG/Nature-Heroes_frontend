@@ -49,7 +49,7 @@ export default function AnimalEdit() {
 
   return (
     <div>
-      <img src={animal.image} alt={animal.common_name} />
+      <img src={animal.image} width={'300px'} alt={animal.common_name} />
       <h2>Edit animal</h2>
        <form onSubmit={handleSubmit}>
 

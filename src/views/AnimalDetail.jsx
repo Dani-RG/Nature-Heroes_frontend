@@ -46,7 +46,8 @@ export default function AnimalDetail() {
       {error && <p>Something went wrong. Couldn't find your animal</p>}
       <div>
         <button><Link to={`/animals/edit/${animalId}`}>Edit</Link></button>
-        <button onClick={()=>handleDeleteAnimal(`${animalId}`)}>Delete</button>
+        <button onClick={()=>handleDeleteAnimal(animalId)}>Delete</button>
+        {/* <button onClick={()=>handleDeleteAnimal(`${animalId}`)}>Delete</button> */}
       </div>
     </div>
   )

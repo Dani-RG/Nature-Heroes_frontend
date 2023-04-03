@@ -12,12 +12,11 @@ export default function AnimalCardDetail({ animal }) {
     species_status,
     image,
     database_link
-  } = animal;
-  const filteredProjects = [];
+  } = animal
   
   return (
     <div className="AnimalCardResume">
-      <img src={image} alt={common_name} />
+      <img src={image} width={'300px'} alt={common_name} />
       <h3>{common_name}</h3>
       <p>{scientific_name}</p>
       <h3>{population}</h3>
@@ -26,7 +25,7 @@ export default function AnimalCardDetail({ animal }) {
       <h4>{family_name}</h4>
       <p>{habitat_type}</p>
       <p>{database_link}</p>
-      {/* <button><Link to={`/projects/${_id}`}>Donate</Link></button> */}
+      <button><Link to={'/projects'}>Donate</Link></button>
     </div>
   )
 }
