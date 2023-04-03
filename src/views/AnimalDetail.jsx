@@ -27,6 +27,8 @@ export default function AnimalDetail() {
     // eslint-disable-next-line
   }, [animalId])
 
+  // HACER LIFT STATE UP DEL ANIMAL ID, HACIA EL APP.JS
+
   const handleDeleteAnimal = async (animalId) => {
     try {
       await animalService.deleteAnimal(animalId);

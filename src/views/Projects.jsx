@@ -26,13 +26,10 @@ console.log(animal)
   }, [])
   console.log(projects)
 
-  // const handleFilterProjects = () => {
-  //   const filteredProjects = projects.filter(elem => elem.animal === _id);
-  //   setProjects(filteredProjects);
-  // }
-
-  const filteredProjects = projects.filter(elem => elem.animal === _id);
+  const filteredProjects = projects.filter(elem => elem.animal === '642878e1eaa0ad8cf8cc9fe8'); //_id
   console.log(filteredProjects)
+
+  // POPULATE DE FOUNDATIONS EN LOS PROJECTS
 
   return (
     <div>
@@ -41,9 +38,12 @@ console.log(animal)
         (<div className="projects-list">
             {filteredProjects.map(elem => {
               return (
-                <ul>
-                  <li><Link to={`/donations/${elem._id}`}>elem.foundation.logo</Link></li>
-                </ul>
+                <div key={elem._id}>
+                  <Link to={`/donations/${elem._id}`}>
+                    <p>{elem.foundation}</p>
+                    <img src={elem.foundation.logo} width={'50px'} alt={elem.foundation.acronym} />
+                  </Link>
+                </div>
               )
             })} 
         </div>)}

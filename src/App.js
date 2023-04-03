@@ -12,8 +12,12 @@ import IsPrivate from './components/IsPrivate';
 import AnimalDetail from './views/AnimalDetail';
 import AnimalEdit from './views/AnimalEdit';
 import Projects from './views/Projects';
+import DonationNew from './views/DonationNew';
+import React, { useState } from 'react';
 
 function App() {
+  const [animal, setAnimal] = useState({});
+
   return (
     <div className="App">
       <Toaster/>
@@ -25,8 +29,8 @@ function App() {
         <Route path="/private" element={<IsPrivate><PrivateView /></IsPrivate>} />
         <Route path="/animals/:animalId" element={<AnimalDetail />} />
         <Route path="/animals/edit/:animalId" element={<AnimalEdit />} />
-        <Route path="/projects" element={<Projects />} />
-        {/* <Route path="/projects" element={<Projects animal={animal}/>} /> */}
+        <Route path="/projects" element={<Projects animal={animal}/>} />
+        <Route path="/donations/:projectId" element={<DonationNew />} />
         <Route path="/error" element={<ErrorPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

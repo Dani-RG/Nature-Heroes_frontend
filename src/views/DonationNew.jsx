@@ -4,7 +4,7 @@ import donationService from '../services/donationService'
 
 export default function DonationNew({ handleAddDonation }) {
   const { projectId } = useParams();
-  const initialState = { amount: 0 }
+  const initialState = { amount: 1 }
   const [newDonation, setNewDonation] = useState(initialState);
   const navigate = useNavigate();
   const [error, setError] = useState(false);
@@ -35,13 +35,12 @@ export default function DonationNew({ handleAddDonation }) {
     <div>
        <form onSubmit={handleSubmit}>
 
-        <label> Project: </label>
-        <input type='text' name='project' value={projectId}  required />
+        <input type='hidden' name='project' value={projectId} />
 
         <label> Amount: </label>
-        <input type='number' name='amount' value={newDonation.amount} onChange={handleChange}  required />
+        <input type='number' name='amount' min="1" max="100" step="1" value={newDonation.amount} onChange={handleChange}  required />
 
-        <button type='submit'>Send Donation</button>
+        <button type='submit'>Send</button>
       </form>
       {error && <p>Something went wrong.</p>}
     </div>

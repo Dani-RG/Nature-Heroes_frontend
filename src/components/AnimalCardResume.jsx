@@ -6,11 +6,12 @@ export default function AnimalCardResume({ animal }) {
 
   return (
     <div className="AnimalCardResume">
-      <img src={image} width={'400px'} alt={common_name} />
+      <Link to={`/animals/${_id}`}>
+        <img src={image} width={'400px'} alt={common_name} />
+      </Link>
       <h3>{common_name}</h3>
       <p>{scientific_name}</p>
       <h3>{population}</h3>
-      <button className="btn"><Link to={`/animals/${_id}`}>More details</Link></button>
     </div>
   )
 }
