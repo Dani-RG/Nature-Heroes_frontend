@@ -12,6 +12,7 @@ import IsPrivate from './components/IsPrivate';
 import AnimalDetail from './views/AnimalDetail';
 import AnimalEdit from './views/AnimalEdit';
 import Projects from './views/Projects';
+import ProjectNew from './views/ProjectNew';
 import DonationNew from './views/DonationNew';
 import React, { useState } from 'react';
 
@@ -34,6 +35,7 @@ function App() {
         <Route path="/animals/:animalId" element={<AnimalDetail handleAnimal={handleAnimal} />} />
         <Route path="/animals/edit/:animalId" element={<AnimalEdit />} />
         <Route path="/projects" element={<Projects animalId={animalId} />} />
+        <Route path="/projects/new" element={<ProjectNew />} />
         <Route path="/donations/:projectId" element={<DonationNew />} />
         <Route path="/error" element={<ErrorPage />} />
         <Route path="*" element={<NotFound />} />

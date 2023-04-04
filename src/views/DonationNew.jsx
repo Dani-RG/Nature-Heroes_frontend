@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import donationService from '../services/donationService'
 
-export default function DonationNew({ handleAddDonation }) {
+export default function DonationNew() {
   const { projectId } = useParams();
   const initialState = { amount: 1 }
   const [newDonation, setNewDonation] = useState(initialState);
@@ -24,7 +24,8 @@ export default function DonationNew({ handleAddDonation }) {
       const createdDonation = await donationService.createDonation(newDonation);
       setNewDonation(initialState);
       setError(false)
-      navigate(`/donations/${createdDonation._id}`)
+      navigate('/')
+      // navigate(`/donations/${createdDonation._id}`)
     } catch (error) {
       console.error(error)
       setError(true)
