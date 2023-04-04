@@ -1,31 +1,39 @@
-import React, { useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-import donationService from '../services/donationService'
+import React, { useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import donationService from '../services/donationService';
+import { useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
 
 export default function DonationNew() {
-  const userId = undefined
   const { projectId } = useParams();
-  const initialState = { amount: 1 }
+  const project = projectId;
+  let { user } = useContext(AuthContext);
+  const { _id } = user;
+  user = _id;
+  const initialState = { amount: 0 };
   const [newDonation, setNewDonation] = useState(initialState);
-  const navigate = useNavigate();
+  //const [project, setProject] = useState({});
+  //const [userId, setUserId] = useState({});
   const [error, setError] = useState(false);
+  const navigate = useNavigate();
+
+  console.log('project:', project)
+  console.log('user:', _id);
 
   const handleChange = (e) => {
+    //setProject(projectId)
+    //setUserId(user._id)
     setNewDonation(prev => {
       return {
         ...prev,
-        [e.target.name]: e.target.value
+        [e.target.name]: e.target.value,
+        project, user
       }
     })
   }
 
   const handleCreate = async () => {
     try {
-      const donationData = {
-        amount: newDonation.amount,
-        project: newDonation.project,
-        user: newDonation.user
-      }
       const createdDonation = await donationService.createDonation(newDonation);
       setNewDonation(initialState);
       setError(false)
@@ -47,8 +55,8 @@ export default function DonationNew() {
     <div>
       <form onSubmit={handleSubmit}>
 
-        <input type='text' name='project' value={projectId} readOnly required />
-        <input type='text' name='user' value={userId} readOnly required />
+        <input type='text' name='project' value={project} readOnly required />
+        <input type='text' name='user' value={user} readOnly required />
 
         <label> Amount: </label>
         <input type='number' name='amount' min="1" max="100" step="1" value={newDonation.amount} onChange={handleChange} required />
