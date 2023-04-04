@@ -38,8 +38,6 @@ export default function AnimalDetail( props ) {
     }
   }
 
-  console.log(animalId);
-
   return (
     <div>
       {loading && <p>Loading...</p>}

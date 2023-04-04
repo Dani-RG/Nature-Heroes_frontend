@@ -5,6 +5,13 @@ class DonationService {
     this.api = axios.create({
       baseURL: `${process.env.REACT_APP_BACKEND_URL}/donations`
     });
+    this.api.interceptors.request.use(config => {
+      const storedToken = localStorage.getItem('authToken');
+      if (storedToken) {
+        config.headers = { Authorization: `Bearer ${storedToken}` };
+      }
+      return config;
+    });
   }
 
   getDonations() {
@@ -16,6 +23,7 @@ class DonationService {
   }
 
   createDonation(body) {
+    console.log('body:', body)
     return this.api.post('/', body).then(({ data }) => data).catch(err => console.error(err))
   }
 

@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import donationService from '../services/donationService'
 
 export default function DonationNew() {
+  const userId = undefined
   const { projectId } = useParams();
   const initialState = { amount: 1 }
   const [newDonation, setNewDonation] = useState(initialState);
@@ -18,9 +19,13 @@ export default function DonationNew() {
     })
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleCreate = async () => {
     try {
+      const donationData = {
+        amount: newDonation.amount,
+        project: newDonation.project,
+        user: newDonation.user
+      }
       const createdDonation = await donationService.createDonation(newDonation);
       setNewDonation(initialState);
       setError(false)
@@ -30,16 +35,23 @@ export default function DonationNew() {
       console.error(error)
       setError(true)
     }
-  };
+  }
+
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    handleCreate();
+  }
 
   return (
     <div>
-       <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
 
-        <input type='hidden' name='project' value={projectId} />
+        <input type='text' name='project' value={projectId} readOnly required />
+        <input type='text' name='user' value={userId} readOnly required />
 
         <label> Amount: </label>
-        <input type='number' name='amount' min="1" max="100" step="1" value={newDonation.amount} onChange={handleChange}  required />
+        <input type='number' name='amount' min="1" max="100" step="1" value={newDonation.amount} onChange={handleChange} required />
 
         <button type='submit'> Send </button>
       </form>

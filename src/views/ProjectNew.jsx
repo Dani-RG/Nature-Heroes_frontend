@@ -53,10 +53,10 @@ export default function ProjectNew() {
     })
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleCreate = async () => {
     try {
       const createdProject = await projectService.createProject(newProject);
+      console.log('Created', createdProject)
       setNewProject(initialState);
       setError(false)
       navigate('/')
@@ -65,7 +65,12 @@ export default function ProjectNew() {
       console.error(error)
       setError(true)
     }
-  };
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleCreate();
+  }
 
   return (
     <div>
@@ -75,7 +80,7 @@ export default function ProjectNew() {
         <select name="foundation" value={newProject.foundation} onChange={handleChange} required>
           <option value="">Select a foundation</option>
           {foundations.map((foundation) => (
-            <option key={foundation._id}>
+            <option key={foundation._id} value={foundation._id}>
               {foundation.name}
             </option>
           ))}
@@ -85,7 +90,7 @@ export default function ProjectNew() {
         <select name="animal" value={newProject.animal} onChange={handleChange} required>
           <option value="">Select an animal</option>
           {animals.map((animal) => (
-            <option key={animal._id}>
+            <option key={animal._id} value={animal._id}>
               {animal.common_name}
             </option>
           ))}
