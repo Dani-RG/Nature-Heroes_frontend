@@ -22,8 +22,6 @@ function App() {
     setAnimal(animalId) 
   }
 
-  console.log(animalId)
-
   return (
     <div className="App">
       <Toaster/>

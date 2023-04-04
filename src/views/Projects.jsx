@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 import projectService from '../services/projectService';
 
 export default function Projects({ animalId }) {
-console.log(animalId)
 
-  const [projects, setProjects] = useState([]);
+  //const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [filteredProjects, setFilteredProjects] = useState([]);
@@ -13,7 +12,7 @@ console.log(animalId)
   const getProjects = async () => {
     try {
       const response = await projectService.getProjects();
-      setProjects(response);
+      //setProjects(response);
       setLoading(false);
       setError(false);
       setFilteredProjects(response.filter(elem => elem.animal === animalId));
@@ -27,10 +26,7 @@ console.log(animalId)
   useEffect(() => {
     getProjects();
     // eslint-disable-next-line
-  }, [animalId])
-
-  console.log(projects)
-  console.log(filteredProjects)
+  }, [])
 
   return (
     <div>
