@@ -16,7 +16,13 @@ import DonationNew from './views/DonationNew';
 import React, { useState } from 'react';
 
 function App() {
-  const [animal, setAnimal] = useState({});
+  const [animalId, setAnimal] = useState({});
+
+  const handleAnimal = (animalId) => {
+    setAnimal(animalId) 
+  }
+
+  console.log(animalId)
 
   return (
     <div className="App">
@@ -27,9 +33,9 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/private" element={<IsPrivate><PrivateView /></IsPrivate>} />
-        <Route path="/animals/:animalId" element={<AnimalDetail />} />
+        <Route path="/animals/:animalId" element={<AnimalDetail handleAnimal={handleAnimal} />} />
         <Route path="/animals/edit/:animalId" element={<AnimalEdit />} />
-        <Route path="/projects" element={<Projects animal={animal}/>} />
+        <Route path="/projects" element={<Projects animalId={animalId} />} />
         <Route path="/donations/:projectId" element={<DonationNew />} />
         <Route path="/error" element={<ErrorPage />} />
         <Route path="*" element={<NotFound />} />

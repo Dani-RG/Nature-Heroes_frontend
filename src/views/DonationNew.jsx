@@ -40,7 +40,7 @@ export default function DonationNew({ handleAddDonation }) {
         <label> Amount: </label>
         <input type='number' name='amount' min="1" max="100" step="1" value={newDonation.amount} onChange={handleChange}  required />
 
-        <button type='submit'>Send</button>
+        <button type='submit'> Send </button>
       </form>
       {error && <p>Something went wrong.</p>}
     </div>

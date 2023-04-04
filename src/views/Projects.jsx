@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import projectService from '../services/projectService';
 
-export default function Projects({ animal }) {
-console.log(animal)
+export default function Projects({ animalId }) {
+console.log(animalId)
 
-  const { _id } = animal;
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [filteredProjects, setFilteredProjects] = useState([]);
 
   const getProjects = async () => {
     try {
@@ -16,25 +16,26 @@ console.log(animal)
       setProjects(response);
       setLoading(false);
       setError(false);
+      setFilteredProjects(response.filter(elem => elem.animal === animalId));
     } catch (error) {
       console.error(error)
+      setLoading(false);
+      setError(true);
     }
   }
 
   useEffect(() => {
     getProjects();
-  }, [])
+    // eslint-disable-next-line
+  }, [animalId])
+
   console.log(projects)
-
-  const filteredProjects = projects.filter(elem => elem.animal === '642878e1eaa0ad8cf8cc9fe8'); //_id
   console.log(filteredProjects)
-
-  // POPULATE DE FOUNDATIONS EN LOS PROJECTS
 
   return (
     <div>
       {loading && <p>Loading...</p>}
-      {!loading && filteredProjects &&
+      {!loading && filteredProjects.length > 0 &&
         (<div className="projects-list">
             {filteredProjects.map(elem => {
               return (

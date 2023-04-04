@@ -3,12 +3,13 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import AnimalCardDetail from '../components/AnimalCardDetail';
 import animalService from '../services/animalService';
 
-export default function AnimalDetail() {
+export default function AnimalDetail( props ) {
   const { animalId } = useParams();
   const [animal, setAnimal] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
+  const { handleAnimal } = props;
 
   const getAnimal = async () => {
     try {
@@ -27,8 +28,6 @@ export default function AnimalDetail() {
     // eslint-disable-next-line
   }, [animalId])
 
-  // HACER LIFT STATE UP DEL ANIMAL ID, HACIA EL APP.JS
-
   const handleDeleteAnimal = async (animalId) => {
     try {
       await animalService.deleteAnimal(animalId);
@@ -44,7 +43,7 @@ export default function AnimalDetail() {
   return (
     <div>
       {loading && <p>Loading...</p>}
-      {!loading && animal && <AnimalCardDetail animal={animal} />}
+      {!loading && animal && <AnimalCardDetail animal={animal} handleAnimal={handleAnimal} />}
       {error && <p>Something went wrong. Couldn't find your animal</p>}
       <div>
         <button><Link to={`/animals/edit/${animalId}`}>Edit</Link></button>

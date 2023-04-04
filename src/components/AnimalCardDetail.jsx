@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function AnimalCardDetail({ animal }) {
+export default function AnimalCardDetail({ animal, handleAnimal }) {
   const {
+    _id,
     common_name,
     scientific_name,
     class_name,
@@ -13,6 +14,11 @@ export default function AnimalCardDetail({ animal }) {
     image,
     database_link
   } = animal
+
+    // HACER LIFT STATE UP DEL ANIMAL ID, HACIA EL APP.JS
+    const handleSelectAnimal = () => {
+    handleAnimal(_id)
+  }
   
   return (
     <div className="AnimalCardResume">
@@ -25,7 +31,7 @@ export default function AnimalCardDetail({ animal }) {
       <h4>{family_name}</h4>
       <p>{habitat_type}</p>
       <p>{database_link}</p>
-      <button><Link to={'/projects'}>Donate</Link></button>
+      <button><Link to={'/projects'} onClick={handleSelectAnimal} animal={_id}> Donate </Link></button>
     </div>
   )
 }
