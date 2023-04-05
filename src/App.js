@@ -9,6 +9,7 @@ import Signup from './views/auth/Signup';
 import Login from './views/auth/Login';
 import PrivateView from './views/PrivateView';
 import IsPrivate from './components/IsPrivate';
+import Animals from './views/Animals';
 import AnimalDetail from './views/AnimalDetail';
 import AnimalEdit from './views/AnimalEdit';
 import Projects from './views/Projects';
@@ -29,6 +30,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/animals" element={<Animals />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/private" element={<IsPrivate><PrivateView /></IsPrivate>} />
