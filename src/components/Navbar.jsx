@@ -5,6 +5,7 @@ import { AuthContext } from '../context/AuthContext';
 export default function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext); 
   const navigate = useNavigate();
+
   return (
     <div>
       <ul>
