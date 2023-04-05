@@ -6,10 +6,10 @@ export default function Home() {
   const { isLoggedIn, user } = useContext(AuthContext); 
 
   return (
-    <div className="Home">
+    <div className="home">
       {user && <p>Hello {user.username}!</p> }
       <Link to={'/animals'}>
-        <img src={'../images/NH_logo.jpg'} alt='Nature Heroes'/>
+        <img src={'../images/NH_logo_W_V.png'} alt='Nature Heroes'/>
       </Link>
       {!isLoggedIn && <Link to={'/login'}>
         <h4>Log in</h4>

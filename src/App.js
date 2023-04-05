@@ -10,6 +10,7 @@ import Login from './views/auth/Login';
 import PrivateView from './views/PrivateView';
 import IsPrivate from './components/IsPrivate';
 import Animals from './views/Animals';
+import AnimalNew from './views/AnimalNew';
 import AnimalDetail from './views/AnimalDetail';
 import AnimalEdit from './views/AnimalEdit';
 import Projects from './views/Projects';
@@ -34,6 +35,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/private" element={<IsPrivate><PrivateView /></IsPrivate>} />
+        <Route path="/animals/new" element={<AnimalNew />} />
         <Route path="/animals/:animalId" element={<AnimalDetail handleAnimal={handleAnimal} />} />
         <Route path="/animals/edit/:animalId" element={<AnimalEdit />} />
         <Route path="/projects" element={<Projects animalId={animalId} />} />

@@ -12,7 +12,8 @@ export default function Home() {
   const getAnimals = async () => {
     try {
       const response = await animalService.getAnimals();
-      setAnimals(response)
+      const shuffledAnimals = shuffle(response);
+      setAnimals(shuffledAnimals);
       setAnimalsCopy(response)
       setLoading(false)
     } catch (error) {
@@ -22,6 +23,7 @@ export default function Home() {
 
   useEffect(() => {
     getAnimals()
+    // eslint-disable-next-line
   }, [])
 
   const handleSearch = (value) => {
@@ -55,6 +57,21 @@ export default function Home() {
   const handleFilter_ExW = () => {
     const filteredAnimals = animals.filter(elem => elem.species_status === 'Extinct in the Wild');
     setAnimalsCopy(filteredAnimals);
+  }
+
+  function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+
+    while (currentIndex !== 0) {
+  
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+  
+    return array;
   }
 
   return (

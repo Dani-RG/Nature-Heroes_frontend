@@ -78,7 +78,7 @@ export default function AnimalEdit() {
         <label> Image: </label>
         <input type='text' name='image' value={animal.image} onChange={handleChange} required />
 
-        <label> Database: </label>
+        <label> Database link: </label>
         <input type='text' name='database_link' value={animal.database_link} onChange={handleChange} required />
 
         <button type='submit'>Save changes</button>
