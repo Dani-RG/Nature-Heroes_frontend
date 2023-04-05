@@ -5,6 +5,7 @@ import SearchInput from '../components/SearchInput';
 
 export default function Home() {
   const [animals, setAnimals] = useState([]);
+  const [animalsCopy, setAnimalsCopy] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchValue, setSearchValue] = useState('');
 
@@ -12,6 +13,7 @@ export default function Home() {
     try {
       const response = await animalService.getAnimals();
       setAnimals(response)
+      setAnimalsCopy(response)
       setLoading(false)
     } catch (error) {
       console.error(error)
@@ -26,29 +28,33 @@ export default function Home() {
     setSearchValue(value);
   }
 
+  const handleFilter_AR = () => {
+    const filteredAnimals = animals;
+    setAnimalsCopy(filteredAnimals);
+  }
   const handleFilter_LC = () => {
     const filteredAnimals = animals.filter(elem => elem.species_status === 'Least Concern');
-    setAnimals(filteredAnimals);
+    setAnimalsCopy(filteredAnimals);
   }
   const handleFilter_NT = () => {
     const filteredAnimals = animals.filter(elem => elem.species_status === 'Near Threatened');
-    setAnimals(filteredAnimals);
+    setAnimalsCopy(filteredAnimals);
   }
   const handleFilter_V = () => {
     const filteredAnimals = animals.filter(elem => elem.species_status === 'Vulnerable');
-    setAnimals(filteredAnimals);
+    setAnimalsCopy(filteredAnimals);
   }
   const handleFilter_En = () => {
     const filteredAnimals = animals.filter(elem => elem.species_status === 'Endangered');
-    setAnimals(filteredAnimals);
+    setAnimalsCopy(filteredAnimals);
   }
   const handleFilter_CE = () => {
     const filteredAnimals = animals.filter(elem => elem.species_status === 'Critically Endangered');
-    setAnimals(filteredAnimals);
+    setAnimalsCopy(filteredAnimals);
   }
   const handleFilter_ExW = () => {
     const filteredAnimals = animals.filter(elem => elem.species_status === 'Extinct in the Wild');
-    setAnimals(filteredAnimals);
+    setAnimalsCopy(filteredAnimals);
   }
 
   return (
@@ -57,6 +63,7 @@ export default function Home() {
       {!loading &&
         (<div className="app">
           <div className="action_container">
+            <button className="btn_filter" onClick={handleFilter_AR}>All Records</button>
             <button className="btn_filter" onClick={handleFilter_LC}>Least Concern</button>
             <button className="btn_filter" onClick={handleFilter_NT}>Near Threatened</button>
             <button className="btn_filter" onClick={handleFilter_V}>Vulnerable</button>
@@ -68,7 +75,7 @@ export default function Home() {
               <SearchInput handleSearchValue={handleSearch} />
           </div>
           <div className="card_container">
-            {animals.filter(elem => elem.common_name.toLowerCase().includes(searchValue.toLowerCase()) || elem.scientific_name.toLowerCase().includes(searchValue.toLowerCase()) || elem.class_name.toLowerCase().includes(searchValue.toLowerCase()))
+            {animalsCopy.filter(elem => elem.common_name.toLowerCase().includes(searchValue.toLowerCase()) || elem.scientific_name.toLowerCase().includes(searchValue.toLowerCase()) || elem.class_name.toLowerCase().includes(searchValue.toLowerCase()))
               .map(elem => {
                 return <AnimalCardResume key={elem._id} animal={elem} />
               })} 
