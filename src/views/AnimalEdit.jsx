@@ -17,7 +17,7 @@ export default function AnimalEdit() {
       console.error(error)
       setError(true)
     }
-  };
+  }
 
   useEffect(() => {
     getAnimal();
@@ -31,10 +31,9 @@ export default function AnimalEdit() {
         [e.target.name]: e.target.value
       }
     })
-  };
+  }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleEdit = async () => {
     try {
       await animalService.editAnimal(animalId, animal);
       navigate(`/animals/${animalId}`)
@@ -42,14 +41,16 @@ export default function AnimalEdit() {
       console.error(error)
       setError(true)
     }
-  };
+  }
 
-  console.log(animalId);
-  console.log(animal)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    handleEdit();
+  }
 
   return (
     <div>
-      <img src={animal.image} width={'300px'} alt={animal.common_name} />
+      <img src={animal.image} width={'300px'} alt={animal._id} />
       <h2>Edit animal</h2>
        <form onSubmit={handleSubmit}>
 

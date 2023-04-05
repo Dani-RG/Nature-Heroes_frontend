@@ -27,6 +27,8 @@ class AnimalService {
   }
 
   editAnimal(id, body) {
+    console.log('id:', id);
+    console.log('body:', body);
     return this.api.put(`/${id}`, body).then(({ data }) => data).catch(err => console.error(err))
   }
 
