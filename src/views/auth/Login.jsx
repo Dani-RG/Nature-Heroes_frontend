@@ -51,11 +51,11 @@ export default function Login() {
     <div>
       <form onSubmit={handleSubmit}>
         <label>Email</label>
-        <input required type="email" name="email" value={user.email} onChange={handleChange} />
+        <input required type='email' name='email' value={user.email} onChange={handleChange} />
         <label>Password</label>
-        <input required type="password" name="password" value={user.password} onChange={handleChange} />
+        <input required type='password' name='password' value={user.password} onChange={handleChange} />
         {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-        <button type="submit">Log in </button>
+        <button type='submit'>Log in </button>
       </form>
     </div>
   )

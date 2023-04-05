@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import projectService from '../services/projectService';
 import foundationService from '../services/foundationService';
 import animalService from '../services/animalService';
+import toast from 'react-hot-toast';
 
 export default function ProjectNew() {
   const initialState = {
@@ -55,12 +56,12 @@ export default function ProjectNew() {
 
   const handleCreate = async () => {
     try {
+      // eslint-disable-next-line
       const createdProject = await projectService.createProject(newProject);
-      console.log('Created', createdProject)
       setNewProject(initialState);
       setError(false)
-      navigate('/')
-      // navigate(`/project/${createdProject._id}`)
+      navigate('/animals')
+      toast.success('Project created!')
     } catch (error) {
       console.error(error)
       setError(true)
@@ -76,9 +77,9 @@ export default function ProjectNew() {
     <div>
       <h2>Create new project</h2>
       <form onSubmit={handleSubmit}>
-        <label> Foundation: </label>
-        <select name="foundation" value={newProject.foundation} onChange={handleChange} required>
-          <option value="">Select a foundation</option>
+        <label>Foundation:</label>
+        <select name='foundation' value={newProject.foundation} onChange={handleChange} required>
+          <option value=''>Select a foundation</option>
           {foundations.map((foundation) => (
             <option key={foundation._id} value={foundation._id}>
               {foundation.name}
@@ -86,9 +87,9 @@ export default function ProjectNew() {
           ))}
         </select>
         
-        <label> Animal: </label>
-        <select name="animal" value={newProject.animal} onChange={handleChange} required>
-          <option value="">Select an animal</option>
+        <label>Animal:</label>
+        <select name='animal' value={newProject.animal} onChange={handleChange} required>
+          <option value=''>Select an animal</option>
           {animals.map((animal) => (
             <option key={animal._id} value={animal._id}>
               {animal.common_name}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import animalService from '../services/animalService';
+import toast from 'react-hot-toast';
 
 export default function AnimalEdit() {
   const { animalId } = useParams();
@@ -37,6 +38,7 @@ export default function AnimalEdit() {
     try {
       await animalService.editAnimal(animalId, animal);
       navigate(`/animals/${animalId}`)
+      toast.success('Animal edited!')
     } catch (error) {
       console.error(error)
       setError(true)
@@ -67,7 +69,7 @@ export default function AnimalEdit() {
         <input type='text' name='family_name' value={animal.family_name} onChange={handleChange} required />
         
         <label> Habitat type: </label>
-        <input type='text' name='habitat_type' value={animal.habitat_type} onChange={handleChange} required />
+        <textarea rows='5' cols='33' name='habitat_type' value={animal.habitat_type} onChange={handleChange} required />
 
         <label> Population: </label>
         <input type='number' name='population' value={animal.population} onChange={handleChange}  required />

@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import donationService from '../services/donationService';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
+import toast from 'react-hot-toast';
 
 export default function DonationNew() {
   const { projectId } = useParams();
@@ -34,11 +35,12 @@ export default function DonationNew() {
 
   const handleCreate = async () => {
     try {
+      // eslint-disable-next-line
       const createdDonation = await donationService.createDonation(newDonation);
       setNewDonation(initialState);
       setError(false)
-      navigate('/')
-      // navigate(`/donations/${createdDonation._id}`)
+      navigate('/animals')
+      toast.success('Donation sent!')
     } catch (error) {
       console.error(error)
       setError(true)
@@ -58,8 +60,8 @@ export default function DonationNew() {
         <input type='text' name='project' value={project} readOnly required />
         <input type='text' name='user' value={user} readOnly required />
 
-        <label> Amount: </label>
-        <input type='number' name='amount' min="1" max="100" step="1" value={newDonation.amount} onChange={handleChange} required />
+        <label>Amount:</label>
+        <input type='number' name='amount' min='1' max='100' step='1' value={newDonation.amount} onChange={handleChange} required />
 
         <button type='submit'> Send </button>
       </form>

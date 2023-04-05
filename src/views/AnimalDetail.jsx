@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import AnimalCardDetail from '../components/AnimalCardDetail';
 import animalService from '../services/animalService';
+import toast from 'react-hot-toast';
 
 export default function AnimalDetail( props ) {
   const { animalId } = useParams();
@@ -34,7 +35,8 @@ export default function AnimalDetail( props ) {
     } catch (error) {
       console.error(error)
     } finally {
-      navigate('/')
+      navigate('/animals')
+      toast.success('Animal data deleted!')
     }
   }
 
@@ -46,7 +48,6 @@ export default function AnimalDetail( props ) {
       <div>
         <button><Link to={`/animals/edit/${animalId}`}>Edit</Link></button>
         <button onClick={()=>handleDeleteAnimal(animalId)}>Delete</button>
-        {/* <button onClick={()=>handleDeleteAnimal(`${animalId}`)}>Delete</button> */}
       </div>
     </div>
   )

@@ -13,6 +13,7 @@ import Animals from './views/Animals';
 import AnimalNew from './views/AnimalNew';
 import AnimalDetail from './views/AnimalDetail';
 import AnimalEdit from './views/AnimalEdit';
+import FoundationNew from './views/FoundationNew';
 import Projects from './views/Projects';
 import ProjectNew from './views/ProjectNew';
 import DonationNew from './views/DonationNew';
@@ -38,6 +39,7 @@ function App() {
         <Route path="/animals/new" element={<AnimalNew />} />
         <Route path="/animals/:animalId" element={<AnimalDetail handleAnimal={handleAnimal} />} />
         <Route path="/animals/edit/:animalId" element={<AnimalEdit />} />
+        <Route path="/foundations/new" element={<FoundationNew />} />
         <Route path="/projects" element={<Projects animalId={animalId} />} />
         <Route path="/projects/new" element={<ProjectNew />} />
         <Route path="/donations/:projectId" element={<DonationNew />} />
