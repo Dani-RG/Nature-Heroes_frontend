@@ -12,7 +12,7 @@ export default function Home() {
   const getAnimals = async () => {
     try {
       const response = await animalService.getAnimals();
-      const shuffledAnimals = shuffle(response);
+      const shuffledAnimals = handleShuffle(response);
       setAnimals(shuffledAnimals);
       setAnimalsCopy(response)
       setLoading(false)
@@ -59,7 +59,7 @@ export default function Home() {
     setAnimalsCopy(filteredAnimals);
   }
 
-  function shuffle(array) {
+  const handleShuffle = (array) => {
     let currentIndex = array.length,  randomIndex;
 
     while (currentIndex !== 0) {

@@ -7,7 +7,7 @@ import ErrorPage from './views/ErrorPage';
 import NotFound from './views/NotFound';
 import Signup from './views/auth/Signup';
 import Login from './views/auth/Login';
-import PrivateView from './views/PrivateView';
+import CreateView from './views/CreateView';
 import IsPrivate from './components/IsPrivate';
 import Animals from './views/Animals';
 import AnimalNew from './views/AnimalNew';
@@ -34,7 +34,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/private" element={<IsPrivate><PrivateView /></IsPrivate>} />
+        <Route path="/create" element={<IsPrivate><CreateView /></IsPrivate>} />
         <Route path="/animals" element={<Animals />} />
         <Route path="/animals/new" element={<AnimalNew />} />
         <Route path="/animals/:animalId" element={<AnimalDetail handleAnimal={handleAnimal} />} />

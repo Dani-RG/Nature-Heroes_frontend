@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
+import { AuthContext } from '../context/AuthContext';
+
 export default function AnimalCardDetail({ animal, handleAnimal }) {
+  const { isLoggedIn } = useContext(AuthContext); 
   const {
     _id,
     common_name,
@@ -31,7 +34,9 @@ export default function AnimalCardDetail({ animal, handleAnimal }) {
       <h4>{family_name}</h4>
       <p>{habitat_type}</p>
       <p>{database_link}</p>
-      <button><Link to={'/projects'} onClick={handleSelectAnimal} animal={_id}> Donate </Link></button>
+      <button>
+      {isLoggedIn ? <Link to={'/projects'} onClick={handleSelectAnimal} animal={_id}>Donate</Link> : <Link to={'/login'}>Donate</Link>}
+      </button>
     </div>
   )
 }
