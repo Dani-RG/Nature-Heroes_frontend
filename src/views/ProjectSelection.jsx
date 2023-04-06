@@ -26,7 +26,7 @@ export default function ProjectSelection({ animalId }) {
     // eslint-disable-next-line
   }, [])
 
-  return (
+      return (
     <div>
       <div>
         {loading && <p>Loading...</p>}
@@ -36,8 +36,7 @@ export default function ProjectSelection({ animalId }) {
                 return (
                   <div key={elem._id}>
                     <Link to={`/projects/selection/donations/${elem._id}`}>
-                      <p>{elem.foundation}</p>
-                      <img src={elem.foundation.logo} width={'50px'} alt={elem.foundation.acronym} />
+                      <img src={elem.foundation.logo} width={'200px'} alt={elem.foundation.acronym} />
                     </Link>
                   </div>
                 )

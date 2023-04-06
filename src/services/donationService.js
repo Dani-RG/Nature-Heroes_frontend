@@ -3,7 +3,7 @@ import axios from "axios"
 class DonationService {
   constructor() {
     this.api = axios.create({
-      baseURL: `${process.env.REACT_APP_BACKEND_URL}/donations`
+      baseURL: `${process.env.REACT_APP_BACKEND_URL}/projects/donations`
     });
     this.api.interceptors.request.use(config => {
       const storedToken = localStorage.getItem('authToken');
@@ -22,9 +22,9 @@ class DonationService {
     return this.api.get(`/${id}`).then(({ data }) => data).catch(err => console.error(err)) 
   }
 
-  createDonation(body) {
+  createDonation(body, id) {
     console.log('body:', body)
-    return this.api.post('/', body).then(({ data }) => data).catch(err => console.error(err))
+    return this.api.post(`/${id}`, body).then(({ data }) => data).catch(err => console.error(err))
   }
 
 }

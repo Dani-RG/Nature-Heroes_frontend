@@ -7,6 +7,9 @@ export default function UserProfile() {
   return (
     <div>
       <h2>{user.username}</h2>
+      <img src={user.image} alt={user.username} />
+      <h4>{user.email}</h4>
+      <h4>{user.role}</h4>
     </div>
   )
 }

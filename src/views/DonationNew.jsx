@@ -36,7 +36,7 @@ export default function DonationNew() {
   const handleCreate = async () => {
     try {
       // eslint-disable-next-line
-      const createdDonation = await donationService.createDonation(newDonation);
+      const createdDonation = await donationService.createDonation(newDonation, projectId);
       setNewDonation(initialState);
       setError(false)
       navigate('/animals')
