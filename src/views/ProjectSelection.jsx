@@ -4,7 +4,6 @@ import projectService from '../services/projectService';
 
 export default function ProjectSelection({ animalId }) {
 
-  //const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [filteredProjects, setFilteredProjects] = useState([]);
@@ -12,7 +11,6 @@ export default function ProjectSelection({ animalId }) {
   const getProjects = async () => {
     try {
       const response = await projectService.getProjects();
-      //setProjects(response);
       setLoading(false);
       setError(false);
       setFilteredProjects(response.filter(elem => elem.animal === animalId));
