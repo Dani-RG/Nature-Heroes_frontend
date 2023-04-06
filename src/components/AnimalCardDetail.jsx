@@ -18,7 +18,6 @@ export default function AnimalCardDetail({ animal, handleAnimal }) {
     database_link
   } = animal
 
-    // HACER LIFT STATE UP DEL ANIMAL ID, HACIA EL APP.JS
     const handleSelectAnimal = () => {
     handleAnimal(_id)
   }
@@ -35,7 +34,7 @@ export default function AnimalCardDetail({ animal, handleAnimal }) {
       <p>{habitat_type}</p>
       <p>{database_link}</p>
       <button>
-      {isLoggedIn ? <Link to={'/projects'} onClick={handleSelectAnimal} animal={_id}>Donate</Link> : <Link to={'/login'}>Donate</Link>}
+      {isLoggedIn ? <Link to={'/projects/selection'} onClick={handleSelectAnimal} animal={_id}>Donate</Link> : <Link to={'/login'}>Donate</Link>}
       </button>
     </div>
   )

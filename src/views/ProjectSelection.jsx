@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import projectService from '../services/projectService';
 
-export default function Projects({ animalId }) {
+export default function ProjectSelection({ animalId }) {
 
   //const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -37,7 +37,7 @@ export default function Projects({ animalId }) {
               {filteredProjects.map(elem => {
                 return (
                   <div key={elem._id}>
-                    <Link to={`/projects/donations/${elem._id}`}>
+                    <Link to={`/projects/selection/donations/${elem._id}`}>
                       <p>{elem.foundation}</p>
                       <img src={elem.foundation.logo} width={'50px'} alt={elem.foundation.acronym} />
                     </Link>

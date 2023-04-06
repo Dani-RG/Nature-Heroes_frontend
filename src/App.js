@@ -14,7 +14,8 @@ import AnimalNew from './views/AnimalNew';
 import AnimalDetail from './views/AnimalDetail';
 import AnimalEdit from './views/AnimalEdit';
 import FoundationNew from './views/FoundationNew';
-import Projects from './views/Projects';
+import Projects from './views/ProjectSelection';
+import ProjectSelection from './views/ProjectSelection';
 import ProjectNew from './views/ProjectNew';
 import DonationNew from './views/DonationNew';
 import React, { useState } from 'react';
@@ -40,9 +41,12 @@ function App() {
         <Route path="/animals/:animalId" element={<AnimalDetail handleAnimal={handleAnimal} />} />
         <Route path="/animals/edit/:animalId" element={<AnimalEdit />} />
         <Route path="/foundations/new" element={<FoundationNew />} />
-        <Route path="/projects" element={<Projects animalId={animalId} />}>
-          <Route path="/projects/donations/:projectId" element={<DonationNew />} />
+        <Route path="/projects" element={<Projects />} />
+
+        <Route path="/projects/selection" element={<ProjectSelection animalId={animalId} />}>
+          <Route path="/projects/selection/donations/:projectId" element={<DonationNew />} />
         </Route>
+
         <Route path="/projects/new" element={<ProjectNew />} />
         <Route path="/error" element={<ErrorPage />} />
         <Route path="*" element={<NotFound />} />

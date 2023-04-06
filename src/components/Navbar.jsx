@@ -22,7 +22,7 @@ export default function Navbar() {
 
         {/* ADMIN */}
         {isLoggedIn && user.role === 'admin' && <li><NavLink to="/foundations">All foundations</NavLink></li>}
-        {/* {isLoggedIn && user.role === 'admin' && <li><NavLink to="/projects">All projects</NavLink></li>} */}
+        {isLoggedIn && user.role === 'admin' && <li><NavLink to="/projects">All projects</NavLink></li>}
         {isLoggedIn && user.role === 'admin' && <li><NavLink to="/create">Create</NavLink></li>}
 
       </ul>
