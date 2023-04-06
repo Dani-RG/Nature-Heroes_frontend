@@ -32,17 +32,18 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/animals" element={<Animals />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/private" element={<IsPrivate><PrivateView /></IsPrivate>} />
+        <Route path="/animals" element={<Animals />} />
         <Route path="/animals/new" element={<AnimalNew />} />
         <Route path="/animals/:animalId" element={<AnimalDetail handleAnimal={handleAnimal} />} />
         <Route path="/animals/edit/:animalId" element={<AnimalEdit />} />
         <Route path="/foundations/new" element={<FoundationNew />} />
-        <Route path="/projects" element={<Projects animalId={animalId} />} />
+        <Route path="/projects" element={<Projects animalId={animalId} />}>
+          <Route path="/projects/donations/:projectId" element={<DonationNew />} />
+        </Route>
         <Route path="/projects/new" element={<ProjectNew />} />
-        <Route path="/donations/:projectId" element={<DonationNew />} />
         <Route path="/error" element={<ErrorPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

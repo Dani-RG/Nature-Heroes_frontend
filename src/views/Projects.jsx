@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import projectService from '../services/projectService';
 
 export default function Projects({ animalId }) {
@@ -30,21 +30,24 @@ export default function Projects({ animalId }) {
 
   return (
     <div>
-      {loading && <p>Loading...</p>}
-      {!loading && filteredProjects.length > 0 &&
-        (<div className="projects-list">
-            {filteredProjects.map(elem => {
-              return (
-                <div key={elem._id}>
-                  <Link to={`/donations/${elem._id}`}>
-                    <p>{elem.foundation}</p>
-                    <img src={elem.foundation.logo} width={'50px'} alt={elem.foundation.acronym} />
-                  </Link>
-                </div>
-              )
-            })} 
-        </div>)}
-      {error && <p>Something went wrong.</p>}
+      <div>
+        {loading && <p>Loading...</p>}
+        {!loading && filteredProjects.length > 0 &&
+          (<div className="projects-list">
+              {filteredProjects.map(elem => {
+                return (
+                  <div key={elem._id}>
+                    <Link to={`/projects/donations/${elem._id}`}>
+                      <p>{elem.foundation}</p>
+                      <img src={elem.foundation.logo} width={'50px'} alt={elem.foundation.acronym} />
+                    </Link>
+                  </div>
+                )
+              })} 
+          </div>)}
+        {error && <p>Something went wrong.</p>}
+      </div>
+      <Outlet />
     </div>
   )
 }
