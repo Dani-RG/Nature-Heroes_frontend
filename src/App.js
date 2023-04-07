@@ -19,6 +19,7 @@ import FoundationNew from './views/FoundationNew';
 import Projects from './views/Projects';
 import ProjectSelection from './views/ProjectSelection';
 import ProjectNew from './views/ProjectNew';
+import ProjectDetail from './views/ProjectDetail';
 import DonationNew from './views/DonationNew';
 import UserProfile from './views/UserProfile';
 
@@ -45,6 +46,7 @@ function App() {
         <Route path='/foundations' element={<Foundations />} />
         <Route path='/foundations/new' element={<IsPrivate><FoundationNew /></IsPrivate>} />
         <Route path='/projects' element={<Projects />} />
+        <Route path='/projects/:projectId' element={<ProjectDetail />} />
 
         <Route path='/projects/selection' element={<ProjectSelection animalId={animalId} />}>
           <Route path='/projects/selection/donations/:projectId' element={<DonationNew />} />

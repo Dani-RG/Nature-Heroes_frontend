@@ -23,7 +23,6 @@ class DonationService {
   }
 
   createDonation(body, id) {
-    console.log('body:', body)
     return this.api.post(`/${id}`, body).then(({ data }) => data).catch(err => console.error(err))
   }
 

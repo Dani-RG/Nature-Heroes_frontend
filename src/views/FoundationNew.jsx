@@ -29,7 +29,7 @@ export default function FoundationNew() {
       const createdFoundation = await foundationService.createFoundation(newFoundation);
       setNewFoundation(initialState);
       setError(false)
-      navigate('/animals')
+      navigate('/foundations')
       toast.success('Foundation registered!')
     } catch (error) {
       console.error(error)

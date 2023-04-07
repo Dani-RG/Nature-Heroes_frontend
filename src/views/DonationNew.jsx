@@ -13,17 +13,10 @@ export default function DonationNew() {
   user = _id;
   const initialState = { amount: 0 };
   const [newDonation, setNewDonation] = useState(initialState);
-  //const [project, setProject] = useState({});
-  //const [userId, setUserId] = useState({});
   const [error, setError] = useState(false);
   const navigate = useNavigate();
 
-  console.log('project:', project)
-  console.log('user:', _id);
-
   const handleChange = (e) => {
-    //setProject(projectId)
-    //setUserId(user._id)
     setNewDonation(prev => {
       return {
         ...prev,
@@ -39,14 +32,13 @@ export default function DonationNew() {
       const createdDonation = await donationService.createDonation(newDonation, projectId);
       setNewDonation(initialState);
       setError(false)
-      navigate('/animals')
+      navigate(`/projects/${projectId}`)
       toast.success('Donation sent!')
     } catch (error) {
       console.error(error)
       setError(true)
     }
   }
-
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -56,9 +48,8 @@ export default function DonationNew() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-
-        <input type='text' name='project' value={project} readOnly required />
-        <input type='text' name='user' value={user} readOnly required />
+        <input type='hidden' name='project' value={project} required />
+        <input type='hidden' name='user' value={user} required />
 
         <label>Amount:</label>
         <input type='number' name='amount' min='1' max='100' step='1' value={newDonation.amount} onChange={handleChange} required />

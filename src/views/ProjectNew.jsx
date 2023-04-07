@@ -53,21 +53,21 @@ export default function ProjectNew() {
       }
     })
   }
-
+  
   const handleCreate = async () => {
     try {
       // eslint-disable-next-line
       const createdProject = await projectService.createProject(newProject);
       setNewProject(initialState);
       setError(false)
-      navigate('/animals')
+      navigate(`/projects/${createdProject._id}`)
       toast.success('Project created!')
     } catch (error) {
       console.error(error)
       setError(true)
     }
   }
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     handleCreate();
