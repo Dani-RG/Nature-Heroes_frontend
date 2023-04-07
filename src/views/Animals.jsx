@@ -79,7 +79,7 @@ export default function Animals() {
   }
 
   return (
-    <>
+    <div>
       {loading && <p>Loading...</p>}
       {!loading &&
         (<div>
@@ -106,6 +106,6 @@ export default function Animals() {
 
           {error && <p>Something went wrong.</p>}
         </div>)}
-    </>
+    </div>
   )
 }

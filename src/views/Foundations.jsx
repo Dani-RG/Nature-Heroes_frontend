@@ -32,7 +32,7 @@ export default function Foundation() {
   }
 
   return (
-    <>
+    <div>
       {loading && <p>Loading...</p>}
       {!loading &&
         (<div>
@@ -47,6 +47,6 @@ export default function Foundation() {
           </div>
           {error && <p>Something went wrong.</p>}
         </div>)}
-    </>
+    </div>
   )
 }
