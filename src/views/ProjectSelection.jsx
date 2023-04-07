@@ -26,7 +26,7 @@ export default function ProjectSelection({ animalId }) {
     // eslint-disable-next-line
   }, [])
 
-      return (
+  return (
     <div>
       <div>
         {loading && <p>Loading...</p>}

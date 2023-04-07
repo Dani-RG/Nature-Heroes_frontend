@@ -23,6 +23,7 @@ export default function AnimalDetail( props ) {
     } catch (error) {
       console.error(error)
       setLoading(false);
+      setError(true)
     }
   }
 
@@ -51,6 +52,7 @@ export default function AnimalDetail( props ) {
         {isLoggedIn && user.role === 'admin' && <button><Link to={`/animals/edit/${animalId}`}>Edit</Link></button>}
         {isLoggedIn && user.role === 'admin' && <button onClick={()=>handleDeleteAnimal(animalId)}>Delete</button>}
       </div>
+      {error && <p>Something went wrong. Couldn't find this animal</p>}
     </div>
   )
 }

@@ -23,6 +23,7 @@ export default function ProjectNew() {
       setFoundations(response)
     } catch (error) {
       console.error(error)
+      setError(true)
     }
   }
 

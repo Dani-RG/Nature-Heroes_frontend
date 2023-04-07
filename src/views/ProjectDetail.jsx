@@ -15,12 +15,13 @@ export default function ProjectDetail() {
   const getProject = async () => {
     try {
       const response = await projectService.getProject(projectId);
-      setLoading(false);
-      setProject(response);
-      setError(false);
+      setLoading(false)
+      setProject(response)
+      setError(false)
     } catch (error) {
       console.error(error)
-      setLoading(false);
+      setLoading(false)
+      setError(true)
     }
   }
 
@@ -56,11 +57,11 @@ export default function ProjectDetail() {
         <h3>{project.collected_donations}</h3>
       </div>}
 
-      {error && <p>Something went wrong. Couldn't find your project</p>}
-
       <div>
         {isLoggedIn && user.role === 'admin' && <button onClick={()=>handleDeleteProject(projectId)}>Delete</button>}
       </div>
+
+      {error && <p>Something went wrong. Couldn't find this project</p>}
     </div>
   )
 }

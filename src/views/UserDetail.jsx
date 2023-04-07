@@ -18,6 +18,7 @@ export default function UserDetail() {
     } catch (error) {
       console.error(error)
       setLoading(false);
+      setError(true)
     }
   }
 
@@ -45,10 +46,10 @@ export default function UserDetail() {
         </div>
       </div>}
 
-      {error && <p>Something went wrong.</p>}
-
       <div>
         {isLoggedIn && <button><Link to={`/users/edit/${userId}`}>Edit</Link></button>}
+
+      {error && <p>Something went wrong. Couldn't find this user</p>}
       </div>
     </div>
   )

@@ -19,6 +19,7 @@ export default function UserEdit() {
       setError(false);
     } catch (error) {
       console.error(error)
+      setError(true);
     }
   }
 
@@ -79,8 +80,9 @@ export default function UserEdit() {
         <button type='submit'>Save profile</button>
       </form>
 
-      {error && <p>Something went wrong.</p>}
       {isLoggedIn && <button onClick={()=>handleDeleteUser(userEdit._id)}>Delete user</button>}
+
+      {error && <p>Something went wrong.</p>}
     </div>
   )
 }

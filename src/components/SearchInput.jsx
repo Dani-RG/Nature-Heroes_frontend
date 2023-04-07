@@ -10,7 +10,7 @@ export default function SearchInput(props) {
 
   return (
     <div>
-      <input type="text" name="search" onChange={handleChange} placeholder="Search animals" />
+      <input type="text" name="search" onChange={handleChange} placeholder="Search" />
     </div>
   )
 }

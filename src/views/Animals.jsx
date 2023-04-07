@@ -3,21 +3,25 @@ import AnimalCardResume from '../components/AnimalCardResume';
 import animalService from '../services/animalService';
 import SearchInput from '../components/SearchInput';
 
-export default function Home() {
+export default function Animals() {
   const [animals, setAnimals] = useState([]);
   const [animalsCopy, setAnimalsCopy] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const [searchValue, setSearchValue] = useState('');
 
   const getAnimals = async () => {
     try {
       const response = await animalService.getAnimals();
       const shuffledAnimals = handleShuffle(response);
+      setLoading(false)
       setAnimals(shuffledAnimals);
       setAnimalsCopy(response)
-      setLoading(false)
+      setError(false);
     } catch (error) {
       console.error(error)
+      setLoading(false)
+      setError(true)
     }
   }
 
@@ -78,7 +82,7 @@ export default function Home() {
     <>
       {loading && <p>Loading...</p>}
       {!loading &&
-        (<div className="app">
+        (<div>
           <div className="action_container">
             <button className="btn_filter" onClick={handleFilter_AR}>All Records</button>
             <button className="btn_filter" onClick={handleFilter_LC}>Least Concern</button>
@@ -88,15 +92,19 @@ export default function Home() {
             <button className="btn_filter" onClick={handleFilter_CE}>Critically Endangered</button>
             <button className="btn_filter" onClick={handleFilter_ExW}>Extinct in the Wild</button>
           </div>
+
           <div className="search_container">
               <SearchInput handleSearchValue={handleSearch} />
           </div>
+
           <div className="card_container">
             {animalsCopy.filter(elem => elem.common_name.toLowerCase().includes(searchValue.toLowerCase()) || elem.scientific_name.toLowerCase().includes(searchValue.toLowerCase()) || elem.class_name.toLowerCase().includes(searchValue.toLowerCase()))
               .map(elem => {
                 return <AnimalCardResume key={elem._id} animal={elem} />
               })} 
           </div>
+
+          {error && <p>Something went wrong.</p>}
         </div>)}
     </>
   )
