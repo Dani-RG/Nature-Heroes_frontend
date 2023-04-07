@@ -16,7 +16,6 @@ import AnimalEdit from './views/AnimalEdit';
 import AnimalNew from './views/AnimalNew';
 import Foundations from './views/Foundations';
 import FoundationNew from './views/FoundationNew';
-import Projects from './views/Projects';
 import ProjectSelection from './views/ProjectSelection';
 import ProjectNew from './views/ProjectNew';
 import ProjectDetail from './views/ProjectDetail';
@@ -45,7 +44,6 @@ function App() {
         <Route path='/animals/edit/:animalId' element={<IsPrivate><AnimalEdit /></IsPrivate>} />
         <Route path='/foundations' element={<Foundations />} />
         <Route path='/foundations/new' element={<IsPrivate><FoundationNew /></IsPrivate>} />
-        <Route path='/projects' element={<Projects />} />
         <Route path='/projects/:projectId' element={<ProjectDetail />} />
 
         <Route path='/projects/selection' element={<ProjectSelection animalId={animalId} />}>
@@ -53,7 +51,7 @@ function App() {
         </Route>
 
         <Route path='/projects/new' element={<IsPrivate><ProjectNew /></IsPrivate>} />
-        <Route path='/users/:userId' element={<UserProfile />} />
+        <Route path='/me' element={<UserProfile />} />
         <Route path='/error' element={<ErrorPage />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
