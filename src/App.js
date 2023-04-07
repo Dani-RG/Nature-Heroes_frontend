@@ -20,7 +20,8 @@ import ProjectSelection from './views/ProjectSelection';
 import ProjectNew from './views/ProjectNew';
 import ProjectDetail from './views/ProjectDetail';
 import DonationNew from './views/DonationNew';
-import UserProfile from './views/UserProfile';
+import UserDetail from './views/UserDetail';
+import UserEdit from './views/UserEdit';
 
 function App() {
   const [animalId, setAnimal] = useState({});
@@ -51,7 +52,8 @@ function App() {
         </Route>
 
         <Route path='/projects/new' element={<IsPrivate><ProjectNew /></IsPrivate>} />
-        <Route path='/me' element={<UserProfile />} />
+        <Route path='/me' element={<UserDetail />} />
+        <Route path='/users/edit/:userId' element={<UserEdit />} />
         <Route path='/error' element={<ErrorPage />} />
         <Route path='*' element={<NotFound />} />
       </Routes>

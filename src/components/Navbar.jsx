@@ -8,7 +8,6 @@ export default function Navbar() {
   return (
     <div>
       <ul className='navbar'>
-
         <li><NavLink to='/animals'>
           <img className='nav_logo' src={'../images/NH_logo_W_H.png'} alt='Nature Heroes'/>
         </NavLink></li>
@@ -23,9 +22,7 @@ export default function Navbar() {
 
         {/* ADMIN */}
         {isLoggedIn && user.role === 'admin' && <li><NavLink to='/create'>Create</NavLink></li>}
-
       </ul>
-      {user && <p>{user.username}</p> }
     </div>
   )
 }

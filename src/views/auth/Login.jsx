@@ -40,7 +40,6 @@ export default function Login() {
   }
 
   useEffect(() => {
-    // When the component first renders, check if user is already logged in and redirects
     if (isLoggedIn) {
       navigate('/')
     }
