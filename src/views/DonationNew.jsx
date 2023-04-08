@@ -52,7 +52,7 @@ export default function DonationNew() {
         <input type='hidden' name='user' value={user} required />
 
         <label>Amount:</label>
-        <input type='number' name='amount' min='1' max='100' step='1' value={newDonation.amount} onChange={handleChange} required />
+        <input type='number' name='amount' min='10' max='100' step='10' value={newDonation.amount} onChange={handleChange} required />
 
         <button type='submit'> Send </button>
       </form>
