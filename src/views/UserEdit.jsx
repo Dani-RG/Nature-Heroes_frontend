@@ -8,7 +8,7 @@ import toast from 'react-hot-toast';
 export default function UserEdit() {
   const { isLoggedIn, user } = useContext(AuthContext);
   const userId = user._id
-  const [userEdit, setUserEdit] = useState({});
+  const [userEdit, setUserEdit] = useState(null);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
 
@@ -67,7 +67,8 @@ export default function UserEdit() {
   return (
     <div>
       <h2>Edit user:</h2>
-      <img src={userEdit.image} width={'300px'} alt={userEdit.username} />
+      {userEdit && 
+      <><img src={userEdit.image} width={'300px'} alt={userEdit.username} />
 
       <form onSubmit={handleSubmit}>
 
@@ -81,7 +82,8 @@ export default function UserEdit() {
       </form>
 
       {isLoggedIn && <button onClick={()=>handleDeleteUser(userEdit._id)}>Delete user</button>}
-
+      </>
+}
       {error && <p>Something went wrong.</p>}
     </div>
   )

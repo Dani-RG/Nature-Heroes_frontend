@@ -55,7 +55,7 @@ function App() {
 
         <Route path='/projects/new' element={<IsPrivate><ProjectNew /></IsPrivate>} />
         <Route path='/me' element={<UserDetail />} />
-        <Route path='/users/edit/:userId' element={<UserEdit />} />
+        <Route path='/users/edit/me' element={<UserEdit />} />
         <Route path='/error' element={<ErrorPage />} />
         <Route path='*' element={<NotFound />} />
       </Routes>

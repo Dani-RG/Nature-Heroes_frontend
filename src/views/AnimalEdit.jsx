@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 
 export default function AnimalEdit() {
   const { animalId } = useParams();
-  const [animal, setAnimal] = useState({});
+  const [animal, setAnimal] = useState(null);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
 
@@ -52,7 +52,7 @@ export default function AnimalEdit() {
 
   return (
     <div>
-      <img src={animal.image} width={'300px'} alt={animal.common_name} />
+      {animal && <><img src={animal.image} width={'300px'} alt={animal.common_name} />
       <h2>Edit animal</h2>
        <form onSubmit={handleSubmit}>
 
@@ -84,7 +84,7 @@ export default function AnimalEdit() {
         <input type='text' name='database_link' value={animal.database_link} onChange={handleChange} required />
 
         <button type='submit'>Save changes</button>
-      </form>
+      </form></>}
       {error && <p>Something went wrong.</p>}
     </div>
   )

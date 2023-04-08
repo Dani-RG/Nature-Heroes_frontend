@@ -1,41 +1,18 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { Link } from 'react-router-dom';
-import authService from '../services/authService';
 import CircularProgress from '../components/CircularProgress';
 
 export default function UserDetail() {
   const { isLoggedIn, user } = useContext(AuthContext);
-  const [userId, setUserId] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
   const CircleSize = 100;
   const [progress, setProgress] = useState(0);
   const [level, setLevel] = useState(1);
 
-  const getUser = async () => {
-    try {
-      const response = await authService.me(user._id);
-      setLoading(false);
-      setUserId(response._id);
-      setError(false);
-    } catch (error) {
-      console.error(error)
-      setLoading(false);
-      setError(true)
-    }
-  }
-
-  useEffect(() => {
-    getUser();
-    handleProgressChange();
-    // eslint-disable-next-line
-  }, [user._id])
-
-
-   const handleProgressChange = (donated) => {
+  const handleProgressChange = (donated) => {
     donated = user.donated_total;
     if (donated >= 100) {
+      // donated entre 100 o asi
       setProgress(0);
       setLevel(level + 1);
     } else {
@@ -43,10 +20,15 @@ export default function UserDetail() {
     }
   }
 
+  useEffect(() => {
+    handleProgressChange()
+    // eslint-disable-next-line
+  }, [])
+
   return (
     <div>
-      {loading && <p>Loading...</p>}
-      {!loading && user && <div>
+      {!user && <p>Loading...</p>}
+      {user && <div>
         <div>
           <img src={user.image} alt={user.username}/>
           <h2>Username:</h2>
@@ -58,15 +40,15 @@ export default function UserDetail() {
         </div>
         <div>
           <h3>Donated amout:</h3>
-          <h3>{progress}</h3>
+          <h3>{user.donated_total}</h3>
           <CircularProgress progress={progress} size={CircleSize} />
+          <h3>Hero Level:</h3>
+          <h3>{level}</h3>
         </div>
       </div>}
 
       <div>
-        {isLoggedIn && <button><Link to={`/users/edit/${userId}`}>Edit</Link></button>}
-
-      {error && <p>Something went wrong. Couldn't find this user</p>}
+        {isLoggedIn && <button><Link to={`/users/edit/me`}>Edit</Link></button>}
       </div>
     </div>
   )
