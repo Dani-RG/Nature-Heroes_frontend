@@ -5,19 +5,14 @@ import CircularProgress from '../components/CircularProgress';
 
 export default function UserDetail() {
   const { isLoggedIn, user } = useContext(AuthContext);
-  const CircleSize = 100;
+  const CircleSize = 200;
   const [progress, setProgress] = useState(0);
   const [level, setLevel] = useState(1);
 
   const handleProgressChange = (donated) => {
     donated = user.donated_total;
-    if (donated >= 100) {
-      // donated entre 100 o asi
-      setProgress(0);
-      setLevel(level + 1);
-    } else {
-      setProgress(donated);
-    }
+    setLevel(Math.floor(user.donated_total/100));
+    setProgress(user.donated_total%100);
   }
 
   useEffect(() => {
