@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import animalService from '../services/animalService';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../context/AuthContext';
 
 export default function AnimalEdit() {
   const { animalId } = useParams();
   const [animal, setAnimal] = useState(null);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
+  const { isLoggedIn, user } = useContext(AuthContext);
 
   const getAnimal = async () => {
     try {
@@ -50,6 +52,17 @@ export default function AnimalEdit() {
     handleEdit();
   }
 
+  const handleDeleteAnimal = async (animalId) => {
+    try {
+      await animalService.deleteAnimal(animalId);
+    } catch (error) {
+      console.error(error)
+    } finally {
+      navigate('/animals')
+      toast.success('Animal data deleted!')
+    }
+  }
+
   return (
     <div>
       {animal && <><img src={animal.image} width={'300px'} alt={animal.common_name} />
@@ -85,6 +98,7 @@ export default function AnimalEdit() {
 
         <button type='submit'>Save changes</button>
       </form></>}
+      {isLoggedIn && user.role === 'admin' && <button onClick={()=>handleDeleteAnimal(animalId)}>Delete</button>}
       {error && <p>Something went wrong.</p>}
     </div>
   )

@@ -27,12 +27,12 @@ export default function AnimalCardDetail({ animal, handleAnimal }) {
       <img src={image} width={'300px'} alt={common_name} />
       <h3>{common_name}</h3>
       <p>{scientific_name}</p>
-      <h3>{population}</h3>
+      <h3>{population.toLocaleString("it-IT")}</h3>
       <h3>{species_status}</h3>
       <h4>{class_name}</h4>
       <h4>{family_name}</h4>
       <p>{habitat_type}</p>
-      <p>{database_link}</p>
+      <a href={database_link} target="_blank" rel="noopener noreferrer">Data-webpage</a>
       <button>
       {isLoggedIn ? <Link to={'/projects/selection'} onClick={handleSelectAnimal} animal={_id}>Donate</Link> : <Link to={'/login'}>Donate</Link>}
       </button>

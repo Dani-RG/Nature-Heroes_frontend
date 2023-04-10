@@ -11,7 +11,7 @@ export default function AnimalCardResume({ animal }) {
       </Link>
       <h3>{common_name}</h3>
       <p>{scientific_name}</p>
-      <h3>{population}</h3>
+      <h3>{population.toLocaleString("it-IT")}</h3>
     </div>
   )
 }

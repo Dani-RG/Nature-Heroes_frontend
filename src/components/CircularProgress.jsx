@@ -6,7 +6,6 @@ const CircularProgress = ({ size, progress }) => {
   useEffect(() => {
     const progressOffset = ((100 - progress) / 100) * Math.PI * (size - 10);
     setOffset(progressOffset);
-    console.log(progress);
   }, [setOffset, progress, size]);
 
   return (
