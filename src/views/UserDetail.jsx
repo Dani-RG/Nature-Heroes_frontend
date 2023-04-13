@@ -8,15 +8,14 @@ export default function UserDetail() {
   const CircleSize = 200;
   const [progress, setProgress] = useState(0);
   const [level, setLevel] = useState(1);
-
-  const handleProgressChange = (donated) => {
-    donated = user.donated_total;
+  
+  const handleProgressChange = () => {
     setLevel(Math.floor(user.donated_total/100));
     setProgress(user.donated_total%100);
   }
 
   useEffect(() => {
-    handleProgressChange()
+    handleProgressChange();
     // eslint-disable-next-line
   }, [])
 

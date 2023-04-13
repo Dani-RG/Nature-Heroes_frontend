@@ -1,5 +1,7 @@
 import React, { useState, createContext, useEffect } from 'react';
 import authService from '../services/authService';
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const AuthContext = createContext();
 
@@ -8,6 +10,7 @@ function AuthProviderWrapper(props) {
   const [user, setUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   // Functions to store and delete the token received by the backend in the browser
   const storeToken = (token) => {
@@ -43,6 +46,8 @@ function AuthProviderWrapper(props) {
   const logOutUser = () => {
     removeToken();
     authenticateUser();
+    navigate('/');
+    toast.success('Logged out!')
   }
 
   // When the app first renders, let's see if the user's session is still active
@@ -51,7 +56,7 @@ function AuthProviderWrapper(props) {
   }, []);
   
   return (
-    <AuthContext.Provider value={{ user, isLoggedIn, isLoading, storeToken, authenticateUser, logOutUser }}>
+    <AuthContext.Provider value={{ user, isLoggedIn, isLoading, storeToken, removeToken, authenticateUser, logOutUser }}>
       {props.children}
     </AuthContext.Provider>
   )

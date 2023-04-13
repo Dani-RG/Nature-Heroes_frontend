@@ -5,7 +5,7 @@ export default function AnimalCardResume({ animal }) {
   const { image, common_name, scientific_name, population, _id } = animal;
 
   return (
-    <div className="animal_card">
+    <div className="animal_card_resume">
       <Link to={`/animals/${_id}`}>
         <img src={image} width={'400px'} alt={common_name} />
       </Link>

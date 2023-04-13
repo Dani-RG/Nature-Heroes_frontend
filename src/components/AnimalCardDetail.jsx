@@ -23,7 +23,7 @@ export default function AnimalCardDetail({ animal, handleAnimal }) {
   }
   
   return (
-    <div className="AnimalCardResume">
+    <div className="animal_card_detail">
       <img src={image} width={'300px'} alt={common_name} />
       <h3>{common_name}</h3>
       <p>{scientific_name}</p>
