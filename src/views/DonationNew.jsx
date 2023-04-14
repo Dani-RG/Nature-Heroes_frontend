@@ -84,10 +84,12 @@ export default function DonationNew() {
         <input type='hidden' name='project' value={project} required />
         <input type='hidden' name='user' value={userId} required />
 
-        <label>Amount:</label>
-        <input type='number' name='amount' min='10' max='100' step='10' value={newDonation.amount} onChange={handleChange} required />
+        <div className='donation_box'>
+          <label>Amount:</label>
+          <input type='number' name='amount' min='10' max='100' step='10' value={newDonation.amount} onChange={handleChange} required />
+          <button type='submit'> Send </button>
+        </div>
 
-        <button type='submit'> Send </button>
       </form>
       {error && <p>Something went wrong.</p>}
     </div>

@@ -79,10 +79,14 @@ export default function Animals() {
   }
 
   return (
-    <div>
+    <div className='animals_view'>
       {loading && <p>Loading...</p>}
       {!loading &&
         (<div>
+          <div className="search_container">
+              <SearchInput handleSearchValue={handleSearch} />
+          </div>
+          
           <div className="action_container">
             <button className="btn_filter" onClick={handleFilter_AR}>All Records</button>
             <button className="btn_filter" onClick={handleFilter_LC}>Least Concern</button>
@@ -91,10 +95,6 @@ export default function Animals() {
             <button className="btn_filter" onClick={handleFilter_En}>Endangered</button>
             <button className="btn_filter" onClick={handleFilter_CE}>Critically Endangered</button>
             <button className="btn_filter" onClick={handleFilter_ExW}>Extinct in the Wild</button>
-          </div>
-
-          <div className="search_container">
-              <SearchInput handleSearchValue={handleSearch} />
           </div>
 
           <div className="card_container">

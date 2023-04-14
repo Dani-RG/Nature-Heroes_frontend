@@ -44,21 +44,34 @@ table {
 
 /* APP CSS */
 
+html {
+	background: #22002b;
+	/* background: linear-gradient(159deg, rgba(1,0,19,1) 0%, rgba(0,0,43,1) 35%, rgba(87,0,111,1) 100%);
+	background-size: cover;
+	background-repeat: 0; */
+	color: white;
+}
+
+button {
+	all: unset;
+}
+
 .active {
   color: green;
 }
 
 .App * {
   font-family: 'Montserrat', sans-serif;
+	text-decoration: none;
 }
 
 .navbar {
-	background-color: black;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	height: 50px;
 	width: 100%;
+	box-shadow: white;
 }
 
 .nav_logo {
@@ -66,6 +79,126 @@ table {
 	margin: 5px;
 }
 
-.home {
-	background-color:lightgrey;
+.home_view {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
+
+.home_logo {
+	width: 350px;
+	margin: 0 auto;
+	padding: 100px;
+}
+
+.donation_box {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	width: 100px;
+	margin: 0 auto;
+	border-style: solid;
+	border-color: white;
+	border-width: 2px;
+	border-radius: 10px;
+	height: 120px;
+	justify-content: space-between;
+	/* background-color: blue; */
+}
+
+.donation_box > label {
+	margin: 10px;
+}
+
+.donation_box > input {
+	all: unset;
+	margin: 10px;
+}
+
+.donation_box > button {
+	border-radius: 50px;
+	margin: 10px;
+	height: 30px;
+}
+
+.container_centered {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.container_wrap {
+	display: flex;
+	flex-wrap: wrap;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	padding: 20px
+}
+
+.blur {
+	-webkit-filter: blur(10px);
+	-moz-filter: blur(10px);
+	-o-filter: blur(10px);
+	-ms-filter: blur(10px);
+	filter: blur(10px);
+}
+
+.animal_image {
+	width: 350px;
+	height: 250px;
+	object-fit: cover;
+	border-radius: 10px;
+}
+
+.foundation_image {
+	width: 100px;
+	max-height: 100px;
+}
+
+.search_bar > input {
+	all: unset
+}
+
+.search_bar {
+	width: 200px;
+	height: 25px;
+	margin: 0 auto;
+	border-style: solid;
+	border-width: 1px;
+	border-color: white;
+	border-radius: 50px;
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	justify-content: space-around;
+}
+
+.card_container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+.animal_card {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 350px;
+}
+
+.card_text {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+	margin-bottom: 35px;
+}
+
+.population_text {
+	font-weight: bolder;
+}
+

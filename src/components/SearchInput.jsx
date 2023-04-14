@@ -9,7 +9,7 @@ export default function SearchInput(props) {
   }
 
   return (
-    <div>
+    <div className='search_bar'>
       <input type="text" name="search" onChange={handleChange} placeholder="Search" />
     </div>
   )

@@ -31,7 +31,7 @@ export default function AnimalDetail( props ) {
   }, [animalId])
 
   return (
-    <div>
+    <div className='card_container'>
       {loading && <p>Loading...</p>}
       {!loading && animal && <AnimalCardDetail animal={animal} handleAnimal={handleAnimal} />}
       {error && <p>Something went wrong. Couldn't find your animal</p>}

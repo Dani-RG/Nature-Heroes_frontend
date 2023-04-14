@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import projectService from '../services/projectService';
+import animalService from '../services/animalService';
 
 export default function ProjectSelection({ animalId }) {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [filteredProjects, setFilteredProjects] = useState([]);
+  const [animal, setAnimal] = useState(null);
 
   const getProjects = async () => {
     try {
@@ -21,26 +23,43 @@ export default function ProjectSelection({ animalId }) {
     }
   }
 
+  const getAnimal = async () => {
+    try {
+      const response = await animalService.getAnimal(animalId);
+      setLoading(false);
+      setAnimal(response);
+      setError(false);
+    } catch (error) {
+      console.error(error)
+      setLoading(false);
+      setError(true)
+    }
+  }
+
   useEffect(() => {
     getProjects();
+    getAnimal();
     // eslint-disable-next-line
   }, [])
 
   return (
-    <div>
-      <div>
+    <div className='project_selection'>
+      <div className='container_centered'>
         {loading && <p>Loading...</p>}
         {!loading && filteredProjects.length > 0 &&
-          (<div className="projects-list">
+          (<div>
+            <img src={animal.image} className='animal_image' alt={animal.name} />
+            <div className="container_wrap">
               {filteredProjects.map(elem => {
                 return (
                   <div key={elem._id}>
                     <Link to={`/projects/selection/donations/${elem._id}`}>
-                      <img src={elem.foundation.logo} width={'200px'} alt={elem.foundation.acronym} />
+                      <img src={elem.foundation.logo} className='foundation_image' alt={elem.foundation.acronym} />
                     </Link>
                   </div>
                 )
-              })} 
+              })}
+            </div>
           </div>)}
         {error && <p>Something went wrong.</p>}
       </div>

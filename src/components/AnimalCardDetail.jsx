@@ -23,19 +23,29 @@ export default function AnimalCardDetail({ animal, handleAnimal }) {
   }
   
   return (
-    <div className="animal_card_detail">
-      <img src={image} width={'300px'} alt={common_name} />
-      <h3>{common_name}</h3>
-      <p>{scientific_name}</p>
-      <h3>{population.toLocaleString("it-IT")}</h3>
-      <h3>{species_status}</h3>
-      <h4>{class_name}</h4>
-      <h4>{family_name}</h4>
-      <p>{habitat_type}</p>
-      <a href={database_link} target="_blank" rel="noopener noreferrer">Data-webpage</a>
-      <button>
-      {isLoggedIn ? <Link to={'/projects/selection'} onClick={handleSelectAnimal} animal={_id}>Donate</Link> : <Link to={'/login'}>Donate</Link>}
-      </button>
+    <div className="animal_card">
+      <div>
+        <img src={image} className='animal_image' alt={common_name} />
+      </div>
+      <div className='card_text'>
+        <div>
+          <h3>Name: {common_name}</h3>
+          <p>Scientific name: {scientific_name}</p>
+          <h3>Status: {species_status}</h3>
+          <h4>Class: {class_name}</h4>
+          <h4>Family: {family_name}</h4>
+          <p>Habitat: {habitat_type}</p>
+          <a href={database_link} target="_blank" rel="noopener noreferrer">See web data</a>
+          <div>
+            <button>
+              {isLoggedIn ? <Link to={'/projects/selection'} onClick={handleSelectAnimal} animal={_id}>Donate</Link> : <Link to={'/login'}>Donate</Link>}
+            </button>
+          </div>
+        </div>
+        <div className='population_text'>
+          <h3>{population.toLocaleString("it-IT")}</h3>
+        </div>
+      </div>
     </div>
   )
 }

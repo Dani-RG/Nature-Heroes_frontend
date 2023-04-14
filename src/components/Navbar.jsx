@@ -8,8 +8,8 @@ export default function Navbar() {
   return (
     <div>
       <ul className='navbar'>
-        <li><NavLink to='/animals'>
-          <img className='nav_logo' src={'../images/NH_logo_W_H.png'} alt='Nature Heroes'/>
+        <li><NavLink to='/'>
+          <img className='nav_logo' src={'../images/color_horiz.png'} alt='Nature Heroes'/>
         </NavLink></li>
 
         {/* USER AND ADMIN */}
