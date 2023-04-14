@@ -36,7 +36,7 @@ export default function ProjectDetail() {
     } catch (error) {
       console.error(error)
     } finally {
-      navigate('/projects')
+      navigate('/animals')
       toast.success('Project data deleted!')
     }
   }

@@ -26,7 +26,7 @@ export default function UserEdit() {
   useEffect(() => {
     getUser();
     // eslint-disable-next-line
-  }, [userId])
+  }, [])
 
   const handleChange = (e) => {
     setUserEdit(prev => {

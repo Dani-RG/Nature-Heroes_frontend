@@ -11,7 +11,7 @@ export default function DonationNew() {
   const { projectId } = useParams();
   const project = projectId;
   const { user, storeToken, removeToken, authenticateUser } = useContext(AuthContext);
-  const userId = user._id
+  const userId = user._id;
   const initialState = { amount: 0 };
   const [newDonation, setNewDonation] = useState(initialState);
   const [error, setError] = useState(false);
@@ -32,7 +32,7 @@ export default function DonationNew() {
   useEffect(() => {
     getUser();
     // eslint-disable-next-line
-  }, [userId])
+  }, [])
 
   const handleChange = (e) => {
     setNewDonation(prev => {

@@ -1,4 +1,5 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext } from 'react';
+// import React, { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { Link } from 'react-router-dom';
 import CircularProgress from '../components/CircularProgress';
@@ -31,8 +32,10 @@ export default function UserDetail() {
           <h2>{user.username}</h2>
           <h2>Email:</h2>
           <h2>{user.email}</h2>
-          <h2>Role:</h2>
-          <h2>{user.role}</h2>
+          {user.role === 'admin' && <div>
+            <h2>Role:</h2>
+            <h2>{user.role}</h2>
+          </div>}
         </div>
         <div>
           <h3>Donated amout:</h3>
