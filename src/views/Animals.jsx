@@ -79,7 +79,7 @@ export default function Animals() {
   }
 
   return (
-    <div className='animals_view solid_purple'>
+    <div>
       {loading && <p>Loading...</p>}
       {!loading &&
         (<div>

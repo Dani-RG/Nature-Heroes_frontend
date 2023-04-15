@@ -51,17 +51,17 @@ body {
 }
 
 html {
-	background: #22002b;
-	background: linear-gradient(159deg, rgba(1,0,19,1) 0%, rgba(0,0,43,1) 35%, rgba(87,0,111,1) 100%);
-	background-size: cover;
-	background-repeat: no-repeat;
 	color: white;
 	width: 100vw;
 	height: 100vh;
 }
 
-.solid_purple {
-	background: #22002b;
+.solid_bg {
+	background-color: #010025;
+}
+
+.lighter_solid_bg {
+	background-color: #1a1840;
 }
 
 a {
@@ -70,6 +70,18 @@ a {
 
 button {
 	all: unset;
+}
+
+.btn {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #31b8fc;
+	border-radius: 25px;
+	width: 80px;
+	padding: 10px;
+	text-align: center;
+	align-self: center;
+	margin: 10px;
 }
 
 .active {
@@ -81,24 +93,54 @@ button {
 	text-decoration: none;
 }
 
-.navbar {
+.header_nav {
 	display: flex;
-	flex-direction: row;
 	align-items: center;
+	justify-content: space-between;
 	height: 55px;
 	width: 100%;
-	box-shadow: white;
 	position: fixed;
 	top: 0;
 	left: 0;
   right: 0;
-	background-color: #22002b;
-	box-shadow: rgba(255,255,255, 0.2) 0px 2px 10px;
+	box-shadow: black 5px 2px 10px;
 }
 
+/* .open_menu {
+	display: block;
+} */
+
+/* .nav {
+	opacity: 0;
+	visibility: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+	gap: 20px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #100f28;
+	padding: 20px;
+	box-shadow: black 5px 2px 10px;
+} */
+
+/* nav.visible {
+	opacity: 1;
+	visibility: visible;
+} */
+
+/* .nav_list {
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+	gap: 20px;
+} */
+
 .nav_logo {
-	height: 40px;
-	margin: 5px;
+	height: 35px;
+	margin: 10px;
 }
 
 .home_view {
@@ -127,7 +169,6 @@ button {
 	border-radius: 10px;
 	height: 120px;
 	justify-content: space-between;
-	/* background-color: blue; */
 }
 
 .donation_box > label {
@@ -188,8 +229,7 @@ button {
 	position: fixed;
 	left: 50%;
   transform: translateX(-50%);
-	/* top: 13px; */
-	top: 1px;
+	top: 14px;
 	width: 170px;
 	height: 25px;
 	border-style: solid;
@@ -215,6 +255,19 @@ button {
 	flex-direction: column;
 	justify-content: center;
 	width: 350px;
+	height: 290px;
+	background-color: rgba(255,255,255,0.1);
+	border-radius: 10px;
+	margin: 25px;
+	box-shadow: black 5px 2px 10px;
+}
+
+.detail {
+	background: none;
+	box-shadow: none;
+ 	position: relative;
+	top: 210px;
+	z-index: -10;
 }
 
 .foundation_card {
@@ -230,11 +283,58 @@ button {
 	justify-content: space-between;
 	margin-top: 10px;
 	margin-bottom: 35px;
+	margin-left: 10px;
+	margin-right: 10px;
+	align-items: center;
 }
 
-.population_text {
-	font-weight: bolder;
+.card_details {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.details_text > p {
+	margin-bottom: 8px ;
+}
+
+.animal_names > p {
+ padding: 3px
+}
+
+.animal_common {
+	font-weight: 500;
+}
+
+.animal_scientific {
+	font-weight: 300;
+	font-style: italic;
+}
+
+.animal_population {
+	font-weight: 700;
 	text-align: right;
+	/* color: #0afd93; */
+	color: #31b8fc
+}
+
+.bigger_text {
+	font-size: 20px;
+}
+
+.donate_btn {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #0afd93;
+	border-radius: 25px;
+	width: 80px;
+	padding: 10px;
+	text-align: center;
+	align-self: center;
+	font-weight: 700;
 }
 
 .filters_container {
@@ -256,8 +356,4 @@ button {
 .home_auth {
 	position: absolute;
 	top: 530px
-}
-
-.animals_view {
-	bottom: auto;
 }

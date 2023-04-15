@@ -12,12 +12,12 @@ export default function AnimalCardResume({ animal }) {
         </Link>
       </div>
       <div className='card_text'>
-        <div>
-          <h3>{common_name}</h3>
-          <p>{scientific_name}</p>
+        <div className='animal_names'>
+          <p className='animal_common'>{common_name}</p>
+          <p className='animal_scientific'>{scientific_name}</p>
         </div>
-        <div className='population_text'>
-          <h3>{population.toLocaleString("it-IT")}</h3>
+        <div className='animal_population'>
+          <p>{population.toLocaleString("it-IT")}</p>
         </div>
       </div>
     </div>

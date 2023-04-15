@@ -59,7 +59,7 @@ export default function AnimalEdit() {
       console.error(error)
     } finally {
       navigate('/animals')
-      toast.success('Animal data deleted!')
+      toast.success('Animal record deleted!')
     }
   }
 

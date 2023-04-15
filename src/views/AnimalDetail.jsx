@@ -1,8 +1,7 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import AnimalCardDetail from '../components/AnimalCardDetail';
 import animalService from '../services/animalService';
-import { AuthContext } from '../context/AuthContext';
 
 export default function AnimalDetail( props ) {
   const { animalId } = useParams();
@@ -10,7 +9,6 @@ export default function AnimalDetail( props ) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const { handleAnimal } = props;
-  const { isLoggedIn, user } = useContext(AuthContext);
 
   const getAnimal = async () => {
     try {
@@ -35,10 +33,6 @@ export default function AnimalDetail( props ) {
       {loading && <p>Loading...</p>}
       {!loading && animal && <AnimalCardDetail animal={animal} handleAnimal={handleAnimal} />}
       {error && <p>Something went wrong. Couldn't find your animal</p>}
-      <div>
-        {isLoggedIn && user.role === 'admin' && <button><Link to={`/animals/edit/${animalId}`}>Edit</Link></button>}
-      </div>
-      {error && <p>Something went wrong. Couldn't find this animal</p>}
     </div>
   )
 }

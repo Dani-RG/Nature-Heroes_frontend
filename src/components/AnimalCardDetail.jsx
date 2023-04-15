@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 
 export default function AnimalCardDetail({ animal, handleAnimal }) {
-  const { isLoggedIn } = useContext(AuthContext); 
+  const { isLoggedIn, user } = useContext(AuthContext); 
   const {
     _id,
     common_name,
@@ -23,30 +23,45 @@ export default function AnimalCardDetail({ animal, handleAnimal }) {
   }
   
   return (
-    <div className="animal_card">
+    <div className="animal_card detail">
       <div>
         <img src={image} className='animal_image' alt={common_name} />
       </div>
-      <div className='card_text'>
-        <div>
-          <h3>Name: {common_name}</h3>
-          <p>Scientific name: {scientific_name}</p>
-          <h3>Status: {species_status}</h3>
-          <h4>Class: {class_name}</h4>
-          <h4>Family: {family_name}</h4>
-          <p>Habitat: {habitat_type}</p>
+      <div className='card_details'>
+
+        <div className='details_text'>
+          <p>Population: </p>
+          <p>Name:</p>
+          <p>{common_name}</p>
+          <p>Scientific name:</p>
+          <p>{scientific_name}</p>
+          <p>Status:</p>
+          <p>{species_status}</p>
+          <p>Class:</p>
+          <p>{class_name}</p>
+          <p>Family:</p>
+          <p>{family_name}</p>
+          <p>Habitat:</p>
+          <p>{habitat_type}</p>
           <a href={database_link} target="_blank" rel="noopener noreferrer">See web data</a>
-          <div>
-            <button>
-              {isLoggedIn ? <Link to={'/projects/selection'} onClick={handleSelectAnimal} animal={_id}>Donate</Link> : <Link to={'/login'}>Donate</Link>}
-            </button>
-          </div>
         </div>
-        <div className='population_text'>
-          <h3>Population: </h3>
-          <h3>{population.toLocaleString("it-IT")}</h3>
+
+        <div className='details_text'>
+          <p className='animal_population bigger_text'>{population.toLocaleString("it-IT")}</p>
         </div>
+
       </div>
+
+      <div className='donate_btn'>
+        <button>
+          {isLoggedIn ? <Link to={'/projects/selection'} onClick={handleSelectAnimal} animal={_id}>Donate</Link> : <Link to={'/login'}>Donate</Link>}
+        </button>
+      </div>
+
+      <div className='btn'>
+        {isLoggedIn && user.role === 'admin' && <button><Link to={`/animals/edit/${_id}`}>Edit</Link></button>}
+      </div>
+
     </div>
   )
 }
