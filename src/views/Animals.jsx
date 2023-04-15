@@ -79,7 +79,7 @@ export default function Animals() {
   }
 
   return (
-    <div className='animals_view'>
+    <div className='animals_view solid_purple'>
       {loading && <p>Loading...</p>}
       {!loading &&
         (<div>
@@ -87,7 +87,7 @@ export default function Animals() {
               <SearchInput handleSearchValue={handleSearch} />
           </div>
           
-          <div className="action_container">
+          <div className="filters_container">
             <button className="btn_filter" onClick={handleFilter_AR}>All Records</button>
             <button className="btn_filter" onClick={handleFilter_LC}>Least Concern</button>
             <button className="btn_filter" onClick={handleFilter_NT}>Near Threatened</button>

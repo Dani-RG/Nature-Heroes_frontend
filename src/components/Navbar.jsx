@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 
 export default function Navbar() {
@@ -7,7 +7,7 @@ export default function Navbar() {
 
   return (
     <div>
-      <ul className='navbar'>
+      {useLocation().pathname !== "/" && <ul className='navbar'>
         <li><NavLink to='/'>
           <img className='nav_logo' src={'../images/color_horiz.png'} alt='Nature Heroes'/>
         </NavLink></li>
@@ -22,7 +22,7 @@ export default function Navbar() {
 
         {/* ADMIN */}
         {isLoggedIn && user.role === 'admin' && <li><NavLink to='/create'>Create</NavLink></li>}
-      </ul>
+      </ul>}
     </div>
   )
 }

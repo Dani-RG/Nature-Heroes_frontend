@@ -44,11 +44,27 @@ table {
 
 /* APP CSS */
 
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+	padding-top: 60px;
+}
+
 html {
 	background: #22002b;
-	/* background: linear-gradient(159deg, rgba(1,0,19,1) 0%, rgba(0,0,43,1) 35%, rgba(87,0,111,1) 100%);
+	background: linear-gradient(159deg, rgba(1,0,19,1) 0%, rgba(0,0,43,1) 35%, rgba(87,0,111,1) 100%);
 	background-size: cover;
-	background-repeat: 0; */
+	background-repeat: no-repeat;
+	color: white;
+	width: 100vw;
+	height: 100vh;
+}
+
+.solid_purple {
+	background: #22002b;
+}
+
+a {
 	color: white;
 }
 
@@ -69,9 +85,15 @@ button {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	height: 50px;
+	height: 55px;
 	width: 100%;
 	box-shadow: white;
+	position: fixed;
+	top: 0;
+	left: 0;
+  right: 0;
+	background-color: #22002b;
+	box-shadow: rgba(255,255,255, 0.2) 0px 2px 10px;
 }
 
 .nav_logo {
@@ -89,7 +111,8 @@ button {
 .home_logo {
 	width: 350px;
 	margin: 0 auto;
-	padding: 100px;
+	position: relative;
+	top: 70px;
 }
 
 .donation_box {
@@ -155,7 +178,6 @@ button {
 
 .foundation_image {
 	width: 100px;
-	max-height: 100px;
 }
 
 .search_bar > input {
@@ -163,18 +185,22 @@ button {
 }
 
 .search_bar {
-	width: 200px;
+	position: fixed;
+	left: 50%;
+  transform: translateX(-50%);
+	/* top: 13px; */
+	top: 1px;
+	width: 170px;
 	height: 25px;
-	margin: 0 auto;
 	border-style: solid;
 	border-width: 1px;
-	border-color: white;
 	border-radius: 50px;
 	display: flex;
-	align-items: center;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	justify-content: space-around;
+	justify-content: center;
+}
+
+.search_bar > input {
+	text-align: center;
 }
 
 .card_container {
@@ -191,6 +217,14 @@ button {
 	width: 350px;
 }
 
+.foundation_card {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 350px;
+}
+
 .card_text {
 	display: flex;
 	justify-content: space-between;
@@ -200,5 +234,30 @@ button {
 
 .population_text {
 	font-weight: bolder;
+	text-align: right;
 }
 
+.filters_container {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 350px;
+	margin: 0 auto;
+	margin-bottom: 30px;
+}
+
+.filters_container > button {
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 25px;
+	padding: 5px;
+}
+
+.home_auth {
+	position: absolute;
+	top: 530px
+}
+
+.animals_view {
+	bottom: auto;
+}

@@ -5,9 +5,13 @@ export default function FoundationCard({ foundation }) {
 
   return (
     <div className="foundation_card">
-      <img src={logo} width={'400px'} alt={name} />
-      <h2>{name}</h2>
-      <h2>{acronym}</h2>
+      <div>
+        <img src={logo} className='foundation_image' alt={name} />
+      </div>
+      <div>
+        <h2>{name}</h2>
+        <h2>{acronym}</h2>
+      </div>
     </div>
   )
 }

@@ -32,7 +32,7 @@ export default function Foundation() {
   }
 
   return (
-    <div>
+    <div className='solid_purple'>
       {loading && <p>Loading...</p>}
       {!loading &&
         (<div>

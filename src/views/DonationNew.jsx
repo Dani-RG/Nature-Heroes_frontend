@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import donationService from '../services/donationService';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import toast from 'react-hot-toast';
-import authService from '../services/authService';
-import userService from '../services/userService';
 
 export default function DonationNew() {
   const { projectId } = useParams();
@@ -16,23 +14,6 @@ export default function DonationNew() {
   const [newDonation, setNewDonation] = useState(initialState);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
-  const [userEdit, setUserEdit] = useState(null);
-
-  const getUser = async () => {
-    try {
-      const response = await authService.me(userId);
-      setUserEdit(response);
-      setError(false);
-    } catch (error) {
-      console.error(error)
-      setError(true);
-    }
-  }
-
-  useEffect(() => {
-    getUser();
-    // eslint-disable-next-line
-  }, [])
 
   const handleChange = (e) => {
     setNewDonation(prev => {
@@ -48,6 +29,11 @@ export default function DonationNew() {
     try {
       // eslint-disable-next-line
       const createdDonation = await donationService.createDonation(newDonation, projectId);
+      
+      removeToken()
+      storeToken(createdDonation.authToken)
+      authenticateUser()
+
       setNewDonation(initialState);
       setError(false)
       navigate(`/projects/${projectId}`)
@@ -58,24 +44,10 @@ export default function DonationNew() {
     }
   }
 
-  const handleEditUser = async () => {
-    try {
-      const thisEditedUser = await userService.editUser(userId, userEdit);
-
-        removeToken()
-        storeToken(thisEditedUser.authToken)
-        authenticateUser()
-      
-    } catch (error) {
-      console.error(error)
-      setError(true)
-    }
-  }
   
   const handleSubmit = async (e) => {
     e.preventDefault();
     handleCreate();
-    handleEditUser();
   }
 
   return (

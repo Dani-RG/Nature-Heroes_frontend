@@ -43,6 +43,7 @@ export default function AnimalCardDetail({ animal, handleAnimal }) {
           </div>
         </div>
         <div className='population_text'>
+          <h3>Population: </h3>
           <h3>{population.toLocaleString("it-IT")}</h3>
         </div>
       </div>

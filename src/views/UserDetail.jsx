@@ -29,7 +29,6 @@ export default function UserDetail() {
           <CircularProgress progress={user.donated_total%100} size={CircleSize} />
           <h3>Hero Level:</h3>
           <h3>{Math.floor(user.donated_total/100)}</h3>
-          {/* <h3>{Math.floor(user.donated_total/100)}</h3> */}
         </div>
       </div>}
 
