@@ -75,9 +75,9 @@ export default function ProjectNew() {
   }
 
   return (
-    <div>
-      <h2>Create new project</h2>
-      <form onSubmit={handleSubmit}>
+    <div className='card_container'>
+      <h2 className='bigger_text bolder_text small_margin'>Create new project</h2>
+      <form onSubmit={handleSubmit} className='edit_form'>
         <label>Foundation:</label>
         <select name='foundation' value={newProject.foundation} onChange={handleChange} required>
           <option value=''>Select a foundation</option>
@@ -98,7 +98,7 @@ export default function ProjectNew() {
           ))}
         </select>
           
-          <button type='submit'>Submit</button>
+          <button type='submit' className='green_btn'>Submit</button>
       </form>
       {error && <p>Something went wrong.</p>}
     </div>

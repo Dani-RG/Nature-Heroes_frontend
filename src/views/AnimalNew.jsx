@@ -47,9 +47,9 @@ export default function AnimalNew() {
   }
 
   return (
-    <div>
-      <h2>Register new animal</h2>
-      <form onSubmit={handleSubmit}>
+    <div className='card_container'>
+      <h2 className='bigger_text bolder_text small_margin'>Register new animal</h2>
+      <form onSubmit={handleSubmit} className='edit_form'>
         <label>Common name:</label>
         <input type='text' name='common_name' value={newAnimal.common_name} onChange={handleChange} required />
 
@@ -77,7 +77,7 @@ export default function AnimalNew() {
         <label>Database link:</label>
         <input type='text' name='database_link' value={newAnimal.database_link} onChange={handleChange} required />
           
-        <button type='submit'>Submit</button>
+        <button type='submit' className='green_btn'>Submit</button>
       </form>
       {error && <p>Something went wrong.</p>}
     </div>

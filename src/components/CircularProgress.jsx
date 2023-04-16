@@ -9,12 +9,12 @@ const CircularProgress = ({ size, progress }) => {
   }, [setOffset, progress, size]);
 
   return (
-    <svg width={size} height={size}>
+    <svg width={size} height={size} className='circle_progress'>
       <circle
         cx={size / 2}
         cy={size / 2}
         r={size / 2 - 5}
-        stroke="#e6e6e6"
+        stroke="#e6e6e671"
         strokeWidth="10"
         fill="none"
       />
@@ -22,7 +22,7 @@ const CircularProgress = ({ size, progress }) => {
         cx={size / 2}
         cy={size / 2}
         r={size / 2 - 5}
-        stroke="#00adb5"
+        stroke="#0afd93"
         strokeWidth="10"
         fill="none"
         strokeDasharray={`${Math.PI * (size - 10)} ${Math.PI * (size - 10)}`}

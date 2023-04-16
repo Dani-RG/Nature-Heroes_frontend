@@ -73,23 +73,23 @@ export default function UserEdit() {
 
   return (
     <div>
-      <h2>Edit user:</h2>
-      {userEdit && 
-      <><img src={userEdit.image} width={'300px'} alt={userEdit.username} />
+      {userEdit && <div className='card_container'>
+        <h2 className='bigger_text bolder_text'>Edit user:</h2>
+        <img src={userEdit.image} className='profile_image' alt={userEdit.username} />
 
-      <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='edit_form'>
 
-        <label>Username:</label>
-        <input type='text' name='username' value={userEdit.username} onChange={handleChange} required />
+          <label>Username:</label>
+          <input type='text' name='username' value={userEdit.username} onChange={handleChange} required />
 
-        <label>Image:</label>
-        <input type='text' name='image' value={userEdit.image} onChange={handleChange} required />
+          <label>Image:</label>
+          <input type='text' name='image' value={userEdit.image} onChange={handleChange} required />
 
-        <button type='submit'>Save profile</button>
-      </form>
+          <button type='submit' className='green_btn'>Save profile</button>
+        </form>
 
-      {isLoggedIn && <button onClick={()=>handleDeleteUser(userEdit._id)}>Delete user</button>}
-      </>
+        {isLoggedIn && <button onClick={()=>handleDeleteUser(userEdit._id)} className='red_btn'>Delete user</button>}
+      </div>
 }
       {error && <p>Something went wrong.</p>}
     </div>

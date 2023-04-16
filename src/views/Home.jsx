@@ -14,10 +14,10 @@ export default function Home() {
       </div>
       <div className='home_auth'>
         {!isLoggedIn && <Link to={'/login'}>
-          <h4>Log in</h4>
+          <h4 className='green_btn small_margin'>Log in</h4>
         </Link>}
         {!isLoggedIn && <Link to={'/signup'}>
-          <h4>Sign up</h4>
+          <h4 className='btn small_margin'>Sign up</h4>
         </Link>}
       </div>
     </div>

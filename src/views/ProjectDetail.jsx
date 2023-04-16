@@ -60,12 +60,10 @@ export default function ProjectDetail() {
         <h2>Has reached</h2>
         <h2 className='bigger_text'>Collected donations:</h2>
         <h3 className='bigger_text bolder_text'> {project.collected_donations} cr.</h3>
+        <div>
+          {isLoggedIn && user.role === 'admin' && <button onClick={()=>handleDeleteProject(projectId)} className='red_btn'>Delete project</button>}
+        </div>
       </div>}
-
-      <div>
-        {isLoggedIn && user.role === 'admin' && <button onClick={()=>handleDeleteProject(projectId)}>Delete</button>}
-      </div>
-
       {error && <p>Something went wrong. Couldn't find this project</p>}
     </div>
   )

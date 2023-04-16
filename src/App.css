@@ -72,6 +72,7 @@ button {
 	all: unset;
 }
 
+
 .btn {
 	border-style: solid;
 	border-width: 1px;
@@ -81,12 +82,44 @@ button {
 	padding: 10px;
 	text-align: center;
 	align-self: center;
-	margin: 10px;
+	margin: 5px;
+}
+
+.wider {
+	padding: 10px 35px;
+}
+
+.green_btn {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #0afd93;
+	border-radius: 25px;
+	width: 80px;
+	padding: 10px;
+	text-align: center;
+	align-self: center;
+	margin: 5px;
+}
+
+.red_btn {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #fd370a;
+	border-radius: 25px;
+	width: 80px;
+	padding: 10px;
+	text-align: center;
+	align-self: center;
+	margin: 5px;
 }
 
 .App * {
   font-family: 'Montserrat', sans-serif;
 	text-decoration: none;
+}
+
+.link {
+	text-decoration: underline;
 }
 
 .header_nav {
@@ -150,19 +183,19 @@ button {
 }
 
 .nav_logo {
-	height: 40px;
-	margin: 10px;
+	height: 45px;
+	margin: 7px;
 }
 
 .home_view {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	top: 0;
 }
 
 .home_logo {
-	width: 350px;
+	width: 320px;
 	margin: 0 auto;
 	position: relative;
 	top: 70px;
@@ -206,6 +239,17 @@ button {
 	gap: 20px
 }
 
+.center {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	gap: 20px
+}
+
+.max_width {
+	width: 500px;
+}
+
 .container_wrap {
 	display: flex;
 	flex-wrap: wrap;
@@ -214,14 +258,6 @@ button {
 	align-items: center;
 	gap: 20px;
 	padding: 20px;
-}
-
-.blur {
-	-webkit-filter: blur(10px);
-	-moz-filter: blur(10px);
-	-o-filter: blur(10px);
-	-ms-filter: blur(10px);
-	filter: blur(10px);
 }
 
 .animal_image {
@@ -255,8 +291,8 @@ button {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-top: 20px;
 }
-
 
 .animal_card {
 	display: flex;
@@ -344,17 +380,6 @@ button {
 	font-weight: 700;
 }
 
-.donate_btn {
-	border-style: solid;
-	border-width: 1px;
-	border-color: #0afd93;
-	border-radius: 25px;
-	width: 80px;
-	padding: 10px;
-	text-align: center;
-	align-self: center;
-}
-
 .filters_container {
 	display: flex;
 	justify-content: center;
@@ -363,7 +388,6 @@ button {
 	width: 350px;
 	margin: 0 auto;
 	margin-top: 20px;
-	margin-bottom: 30px;
 }
 
 .filters_container > button {
@@ -405,10 +429,32 @@ button {
 	border-style: solid;
 	border-width: 2px;
 	border-radius: 10px;
+	border-color: #e6e6e671;
 	border-color: #0afd93;
 	background-color: rgba(255,255,255,0.2);
 	padding: 10px;
 	width: 200px;
 	align-self: center;
 	margin: 40px;
+}
+
+.circle_progress {
+	margin: 10px;
+	border-radius: 50%;
+	box-shadow: #31b8fc 0px 0px 20px;
+}
+
+.profile_image {
+	width: 220px;
+	height: 220px;
+	object-fit: cover;
+	border-radius: 50%;
+	box-shadow: #0afd93 0px 0px 30px;
+	margin: 10px;
+}
+
+.icons {
+	stroke: white;
+  stroke-width: 1px;
+  fill: none
 }

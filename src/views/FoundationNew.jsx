@@ -43,9 +43,9 @@ export default function FoundationNew() {
   }
 
   return (
-    <div>
-      <h2>Register new foundation</h2>
-      <form onSubmit={handleSubmit}>
+    <div className='card_container'>
+      <h2 className='bigger_text bolder_text small_margin'>Register new foundation</h2>
+      <form onSubmit={handleSubmit} className='edit_form'>
         <label>Name:</label>
         <input type='text' name='name' value={newFoundation.name} onChange={handleChange} required />
 
@@ -58,7 +58,7 @@ export default function FoundationNew() {
         <label>Logo:</label>
         <input type='text' name='logo' value={newFoundation.logo} onChange={handleChange} required />
           
-        <button type='submit'>Submit</button>
+        <button type='submit' className='green_btn'>Submit</button>
       </form>
       {error && <p>Something went wrong.</p>}
     </div>

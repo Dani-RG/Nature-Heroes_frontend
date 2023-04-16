@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useAuth } from '../../hooks/useAuth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import authService from '../../services/authService';
 
 export default function Login() {
@@ -47,15 +47,16 @@ export default function Login() {
   }, [isLoggedIn])
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className='card_container'>
+      <form onSubmit={handleSubmit} className='edit_form'>
         <label>Email</label>
         <input required type='email' name='email' value={user.email} onChange={handleChange} />
         <label>Password</label>
         <input required type='password' name='password' value={user.password} onChange={handleChange} />
         {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-        <button type='submit'>Log in </button>
+        <button type='submit' className='green_btn small_margin'>Log in </button>
       </form>
+      <Link to={'/signup'} className='small_margin'>Create an account</Link>
     </div>
   )
 }

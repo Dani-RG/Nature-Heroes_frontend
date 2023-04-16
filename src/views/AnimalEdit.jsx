@@ -98,9 +98,9 @@ export default function AnimalEdit() {
         <label>Database link:</label>
         <input type='text' name='database_link' value={animal.database_link} onChange={handleChange} required />
 
-        <button type='submit' className='btn'>Save changes</button>
+        <button type='submit' className='green_btn'>Save changes</button>
       </form></>}
-      {isLoggedIn && user.role === 'admin' && <button onClick={()=>handleDeleteAnimal(animalId)} className='btn'>Delete</button>}
+      {isLoggedIn && user.role === 'admin' && <button onClick={()=>handleDeleteAnimal(animalId)} className='red_btn'>Delete</button>}
       <br></br>
       {error && <p>Something went wrong.</p>}
     </div>

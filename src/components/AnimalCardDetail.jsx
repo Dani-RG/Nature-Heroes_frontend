@@ -44,7 +44,7 @@ export default function AnimalCardDetail({ animal, handleAnimal }) {
           <p className='bolder_text'>{family_name}</p>
           <p>Habitat:</p>
           <p className='bolder_text'>{habitat_type}</p>
-          <a href={database_link} target='_blank' rel='noopener noreferrer'>See web data</a>
+          <a href={database_link} target='_blank' rel='noopener noreferrer' className='link'>See web data</a>
         </div>
 
         <div className='details_text'>
@@ -53,15 +53,15 @@ export default function AnimalCardDetail({ animal, handleAnimal }) {
 
       </div>
 
-      <div className='donate_btn'>
-        <button>
+      <div className='center'>
+        <button className='green_btn'>
           {isLoggedIn ? <Link to={'/projects/selection'} onClick={handleSelectAnimal} animal={_id} className='bolder_text'>Donate</Link> : <Link to={'/login'}>Donate</Link>}
         </button>
+        <div>
+          {isLoggedIn && user.role === 'admin' && <button><Link to={`/animals/edit/${_id}`} className='btn wider'>Edit</Link></button>}
+        </div>
       </div>
 
-      <div className='btn'>
-        {isLoggedIn && user.role === 'admin' && <button><Link to={`/animals/edit/${_id}`}>Edit</Link></button>}
-      </div>
 
     </div>
   )
