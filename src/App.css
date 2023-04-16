@@ -97,8 +97,6 @@ button {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	height: 55px;
-	width: 100%;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -106,37 +104,54 @@ button {
 	box-shadow: black 5px 2px 10px;
 }
 
-/* .open_menu {
-	display: block;
-} */
+.navbar {
+	text-align: right;
+}
 
-/* .nav {
-	opacity: 0;
-	visibility: hidden;
-	display: flex;
-	flex-direction: column;
-	align-items: end;
-	gap: 20px;
-	position: absolute;
+.menu_bars {
+	margin-right: 15px;
+	font-size: 24px;
+}
+
+.nav_menu {
+	background-color: #1a1840;
+	width: 120px;
+	height: 100vh;
+	position: fixed;
 	top: 0;
+	right: -100%;
+	transition: 850ms;
+}
+
+.nav_menu.active {
 	right: 0;
-	bottom: 0;
-	background-color: #100f28;
-	padding: 20px;
-	box-shadow: black 5px 2px 10px;
-} */
-
-/* nav.visible {
-	opacity: 1;
-	visibility: visible;
-} */
-
-/* .nav_list {
+	transition: 350ms;
 	display: flex;
 	flex-direction: column;
-	align-items: end;
-	gap: 20px;
-} */
+	justify-content: space-between;
+	background-color: #100f2d;
+	box-shadow: black 5px 2px 10px;
+}
+
+.nav_text {
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	padding: 8px 8px 8px 16px;
+	height: 60px;
+}
+
+.nav_menu_items {
+	width: 100%;
+}
+
+.navbar_toggle {
+	width: 100%;
+	height: 60px;
+	display: flex;
+	justify-content: end;
+	align-items: center;
+}
 
 .nav_logo {
 	height: 35px;
@@ -226,7 +241,7 @@ button {
 	left: 50%;
   transform: translateX(-50%);
 	top: 14px;
-	width: 170px;
+	width: 130px;
 	height: 25px;
 	border-style: solid;
 	border-width: 1px;
