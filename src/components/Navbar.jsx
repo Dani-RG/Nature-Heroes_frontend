@@ -21,7 +21,7 @@ export default function Navbar() {
     <div>
       {useLocation().pathname !== "/" && <div className='header_nav lighter_solid_bg'>
         <NavLink to='/animals'>
-          <img className='nav_logo' src={'../images/color_horiz.png'} alt='Nature Heroes'/>
+          <img className='nav_logo' src={'../images/NH_logo_horiz.png'} alt='Nature Heroes'/>
         </NavLink>
         <button className='open_menu'>MENU</button>
         <div className='nav'>

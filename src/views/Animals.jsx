@@ -83,21 +83,21 @@ export default function Animals() {
       {loading && <p>Loading...</p>}
       {!loading &&
         (<div>
-          <div className="search_container">
+          <div className='search_container'>
               <SearchInput handleSearchValue={handleSearch} />
           </div>
           
-          <div className="filters_container">
-            <button className="btn_filter" onClick={handleFilter_AR}>All Records</button>
-            <button className="btn_filter" onClick={handleFilter_LC}>Least Concern</button>
-            <button className="btn_filter" onClick={handleFilter_NT}>Near Threatened</button>
-            <button className="btn_filter" onClick={handleFilter_V}>Vulnerable</button>
-            <button className="btn_filter" onClick={handleFilter_En}>Endangered</button>
-            <button className="btn_filter" onClick={handleFilter_CE}>Critically Endangered</button>
-            <button className="btn_filter" onClick={handleFilter_ExW}>Extinct in the Wild</button>
+          <div className='filters_container'>
+            <button className='btn_filter' onClick={handleFilter_AR}>All Records</button>
+            <button className='btn_filter' onClick={handleFilter_LC}>Least Concern</button>
+            <button className='btn_filter' onClick={handleFilter_NT}>Near Threatened</button>
+            <button className='btn_filter' onClick={handleFilter_V}>Vulnerable</button>
+            <button className='btn_filter' onClick={handleFilter_En}>Endangered</button>
+            <button className='btn_filter' onClick={handleFilter_CE}>Critically Endangered</button>
+            <button className='btn_filter' onClick={handleFilter_ExW}>Extinct in the Wild</button>
           </div>
 
-          <div className="card_container">
+          <div className='card_container'>
             {animalsCopy.filter(elem => elem.common_name.toLowerCase().includes(searchValue.toLowerCase()) || elem.scientific_name.toLowerCase().includes(searchValue.toLowerCase()) || elem.class_name.toLowerCase().includes(searchValue.toLowerCase()))
               .map(elem => {
                 return <AnimalCardResume key={elem._id} animal={elem} />

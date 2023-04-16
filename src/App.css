@@ -162,13 +162,14 @@ button {
 	flex-direction: column;
 	text-align: center;
 	width: 100px;
+	height: 100px;
 	margin: 0 auto;
 	border-style: solid;
-	border-color: white;
-	border-width: 2px;
+	border-color: #0afd93;
+	border-width: 1px;
 	border-radius: 10px;
-	height: 120px;
 	justify-content: space-between;
+	background-color: rgba(255,255,255,0.2);
 }
 
 .donation_box > label {
@@ -177,7 +178,6 @@ button {
 
 .donation_box > input {
 	all: unset;
-	margin: 10px;
 }
 
 .donation_box > button {
@@ -199,7 +199,7 @@ button {
 	justify-content: center;
 	align-items: center;
 	gap: 20px;
-	padding: 20px
+	padding: 20px;
 }
 
 .blur {
@@ -215,10 +215,6 @@ button {
 	height: 250px;
 	object-fit: cover;
 	border-radius: 10px;
-}
-
-.foundation_image {
-	width: 100px;
 }
 
 .search_bar > input {
@@ -270,13 +266,22 @@ button {
 	z-index: -10;
 }
 
-.foundation_card {
+.foundation_image {
+	width: 80px;
+	height: 80px;
+	object-fit: scale-down;
+	background-color: whitesmoke;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+/* .foundation_card {
 	text-align: center;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	width: 350px;
-}
+} */
 
 .card_text {
 	display: flex;
@@ -325,6 +330,10 @@ button {
 	font-size: 20px;
 }
 
+.bolder_text {
+	font-weight: 700;
+}
+
 .donate_btn {
 	border-style: solid;
 	border-width: 1px;
@@ -334,7 +343,6 @@ button {
 	padding: 10px;
 	text-align: center;
 	align-self: center;
-	font-weight: 700;
 }
 
 .filters_container {
@@ -356,4 +364,23 @@ button {
 .home_auth {
 	position: absolute;
 	top: 530px
+}
+
+.edit_form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	gap: 5px;
+}
+
+.edit_form > input, textarea {
+	all: unset;
+	border-style: solid;
+	border-width: 0.5px;
+	border-radius: 5px;
+	width: 100%;
+	background-color: rgba(255,255,255,0.2);
+	margin-bottom: 15px;
 }

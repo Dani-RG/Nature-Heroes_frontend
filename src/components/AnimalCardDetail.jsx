@@ -23,38 +23,39 @@ export default function AnimalCardDetail({ animal, handleAnimal }) {
   }
   
   return (
-    <div className="animal_card detail">
+    <div className='animal_card detail'>
       <div>
         <img src={image} className='animal_image' alt={common_name} />
       </div>
       <div className='card_details'>
 
         <div className='details_text'>
-          <p>Population: </p>
+          <p>Population:</p>
+          <br></br>
           <p>Name:</p>
-          <p>{common_name}</p>
+          <p className='bolder_text'>{common_name}</p>
           <p>Scientific name:</p>
-          <p>{scientific_name}</p>
+          <p className='bolder_text'>{scientific_name}</p>
           <p>Status:</p>
-          <p>{species_status}</p>
+          <p className='bolder_text'>{species_status}</p>
           <p>Class:</p>
-          <p>{class_name}</p>
+          <p className='bolder_text'>{class_name}</p>
           <p>Family:</p>
-          <p>{family_name}</p>
+          <p className='bolder_text'>{family_name}</p>
           <p>Habitat:</p>
-          <p>{habitat_type}</p>
-          <a href={database_link} target="_blank" rel="noopener noreferrer">See web data</a>
+          <p className='bolder_text'>{habitat_type}</p>
+          <a href={database_link} target='_blank' rel='noopener noreferrer'>See web data</a>
         </div>
 
         <div className='details_text'>
-          <p className='animal_population bigger_text'>{population.toLocaleString("it-IT")}</p>
+          <p className='animal_population bigger_text'>{population.toLocaleString('it-IT')}</p>
         </div>
 
       </div>
 
       <div className='donate_btn'>
         <button>
-          {isLoggedIn ? <Link to={'/projects/selection'} onClick={handleSelectAnimal} animal={_id}>Donate</Link> : <Link to={'/login'}>Donate</Link>}
+          {isLoggedIn ? <Link to={'/projects/selection'} onClick={handleSelectAnimal} animal={_id} className='bolder_text'>Donate</Link> : <Link to={'/login'}>Donate</Link>}
         </button>
       </div>
 

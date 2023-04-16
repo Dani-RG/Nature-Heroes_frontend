@@ -43,7 +43,7 @@ export default function ProjectSelection({ animalId }) {
   }, [])
 
   return (
-    <div className='project_selection'>
+    <div>
       <div className='container_centered'>
         {loading && <p>Loading...</p>}
         {!loading && filteredProjects.length > 0 &&

@@ -64,11 +64,13 @@ export default function AnimalEdit() {
   }
 
   return (
-    <div>
-      {animal && <><img src={animal.image} width={'300px'} alt={animal.common_name} />
-      <h2>Edit animal</h2>
-       <form onSubmit={handleSubmit}>
-
+    <div className='card_container'>
+      {animal && <><img src={animal.image} className='animal_image' alt={animal.common_name} />
+      <br></br>
+      <h2 className='bigger_text bolder_text'>Edit animal:</h2>
+      <br></br>
+       <form onSubmit={handleSubmit} className='edit_form'>
+    
         <label>Common name:</label>
         <input type='text' name='common_name' value={animal.common_name} onChange={handleChange} required />
 
@@ -82,7 +84,7 @@ export default function AnimalEdit() {
         <input type='text' name='family_name' value={animal.family_name} onChange={handleChange} required />
         
         <label>Habitat type:</label>
-        <textarea rows='5' cols='33' name='habitat_type' value={animal.habitat_type} onChange={handleChange} required />
+        <textarea rows='3' cols='33' name='habitat_type' value={animal.habitat_type} onChange={handleChange} required />
 
         <label>Population:</label>
         <input type='number' name='population' value={animal.population} onChange={handleChange}  required />
@@ -96,9 +98,10 @@ export default function AnimalEdit() {
         <label>Database link:</label>
         <input type='text' name='database_link' value={animal.database_link} onChange={handleChange} required />
 
-        <button type='submit'>Save changes</button>
+        <button type='submit' className='btn'>Save changes</button>
       </form></>}
-      {isLoggedIn && user.role === 'admin' && <button onClick={()=>handleDeleteAnimal(animalId)}>Delete</button>}
+      {isLoggedIn && user.role === 'admin' && <button onClick={()=>handleDeleteAnimal(animalId)} className='btn'>Delete</button>}
+      <br></br>
       {error && <p>Something went wrong.</p>}
     </div>
   )

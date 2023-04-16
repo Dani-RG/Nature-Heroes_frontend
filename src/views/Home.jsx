@@ -9,7 +9,7 @@ export default function Home() {
     <div className='home_view' >
       <div>
         <Link to={'/animals'}>
-          <img src={'../images/color.png'} className='home_logo' alt='Nature Heroes'/>
+          <img src={'../images/NH_logo_color.png'} className='home_logo' alt='Nature Heroes'/>
         </Link>
       </div>
       <div className='home_auth'>
