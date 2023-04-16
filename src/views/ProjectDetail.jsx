@@ -44,17 +44,22 @@ export default function ProjectDetail() {
   return (
     <div>
       {loading && <p>Loading...</p>}
-      {!loading && project && <div>
+      {!loading && project && <div className='container_centered'>
+        <h2>The foundation:</h2>
+        <div className='container_wrap'>
+          <img src={project.foundation.logo} className='foundation_image' alt={project.foundation.acronym}/>
+          <h3 className='bigger_text'>{project.foundation.name}</h3>
+        </div>
+        <h2>In a project to support:</h2>
         <div>
-          <h3>{project.foundation.name}</h3>
-          <img src={project.foundation.logo} alt={project.foundation.acronym}/>
+          <h3 className='bigger_text'>{project.animal.common_name}</h3>
         </div>
         <div>
-          <h3>{project.animal.common_name}</h3>
-          <img src={project.animal.image} alt={project.common_name}/>
+          <img src={project.animal.image} className='animal_image' alt={project.common_name}/>
         </div>
-        <h3>Collected donations:</h3>
-        <h3>{project.collected_donations}</h3>
+        <h2>Has reached</h2>
+        <h2 className='bigger_text'>Collected donations:</h2>
+        <h3 className='bigger_text bolder_text'> {project.collected_donations} cr.</h3>
       </div>}
 
       <div>

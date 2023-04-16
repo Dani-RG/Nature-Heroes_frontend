@@ -47,20 +47,26 @@ export default function ProjectSelection({ animalId }) {
       <div className='container_centered'>
         {loading && <p>Loading...</p>}
         {!loading && filteredProjects.length > 0 &&
-          (<div>
+          <div>
+            <p className='bigger_text'>Donate to:</p>
+            <p className='bolder_text small_margin'>{animal.common_name}</p>
             <img src={animal.image} className='animal_image' alt={animal.name} />
-            <div className="container_wrap">
+
+            <p className='bigger_text small_margin'>Select a foundation:</p>
+            <div className='container_wrap'>
               {filteredProjects.map(elem => {
                 return (
-                  <div key={elem._id}>
+                  <div key={elem._id} className='foundation_card'>
                     <Link to={`/projects/selection/donations/${elem._id}`}>
                       <img src={elem.foundation.logo} className='foundation_image' alt={elem.foundation.acronym} />
+                      <p>{elem.foundation.name}</p>
                     </Link>
                   </div>
                 )
               })}
             </div>
-          </div>)}
+
+          </div>}
         {error && <p>Something went wrong.</p>}
       </div>
       <Outlet />

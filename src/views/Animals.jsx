@@ -83,18 +83,18 @@ export default function Animals() {
       {loading && <p>Loading...</p>}
       {!loading &&
         (<div>
-          <div className='search_container'>
+          <div>
               <SearchInput handleSearchValue={handleSearch} />
           </div>
           
           <div className='filters_container'>
-            <button className='btn_filter' onClick={handleFilter_AR}>All Records</button>
-            <button className='btn_filter' onClick={handleFilter_LC}>Least Concern</button>
-            <button className='btn_filter' onClick={handleFilter_NT}>Near Threatened</button>
-            <button className='btn_filter' onClick={handleFilter_V}>Vulnerable</button>
-            <button className='btn_filter' onClick={handleFilter_En}>Endangered</button>
-            <button className='btn_filter' onClick={handleFilter_CE}>Critically Endangered</button>
-            <button className='btn_filter' onClick={handleFilter_ExW}>Extinct in the Wild</button>
+            <button onClick={handleFilter_AR}>All Records</button>
+            <button onClick={handleFilter_LC}>Least Concern</button>
+            <button onClick={handleFilter_NT}>Near Threatened</button>
+            <button onClick={handleFilter_V}>Vulnerable</button>
+            <button onClick={handleFilter_En}>Endangered</button>
+            <button onClick={handleFilter_CE}>Critically Endangered</button>
+            <button onClick={handleFilter_ExW}>Extinct in the Wild</button>
           </div>
 
           <div className='card_container'>

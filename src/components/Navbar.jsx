@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 
 export default function Navbar() {
@@ -21,7 +20,7 @@ export default function Navbar() {
 
           <div className='navbar'>
             <Link to='#' className='menu_bars'>
-              <FaIcons.FaBars onClick={showSidebar} />
+              <AiIcons.AiOutlineBars onClick={showSidebar} />
             </Link>
             <nav className={sidebar ? 'nav_menu active' : 'nav_menu'}>
               <ul className='nav_menu_items' onClick={showSidebar}>

@@ -39,7 +39,7 @@ export default function Foundation() {
           <div className="search_container">
               <SearchInput handleSearchValue={handleSearch} />
           </div>
-          <div className="card_container">
+          <div className="container_wrap">
             {foundations.filter(elem => elem.name.toLowerCase().includes(searchValue.toLowerCase()) || elem.acronym.toLowerCase().includes(searchValue.toLowerCase()))
               .map(elem => {
                 return <FoundationCard key={elem._id} foundation={elem} />

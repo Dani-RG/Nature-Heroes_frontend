@@ -84,10 +84,6 @@ button {
 	margin: 10px;
 }
 
-.active {
-  color: green;
-}
-
 .App * {
   font-family: 'Montserrat', sans-serif;
 	text-decoration: none;
@@ -135,9 +131,9 @@ button {
 
 .nav_text {
 	display: flex;
-	justify-content: end;
+	justify-content: flex-end;
 	align-items: center;
-	padding: 8px 8px 8px 16px;
+	padding: 8px 15px 8px 15px;
 	height: 60px;
 }
 
@@ -149,12 +145,12 @@ button {
 	width: 100%;
 	height: 60px;
 	display: flex;
-	justify-content: end;
+	justify-content: flex-end;
 	align-items: center;
 }
 
 .nav_logo {
-	height: 35px;
+	height: 40px;
 	margin: 10px;
 }
 
@@ -179,6 +175,7 @@ button {
 	width: 100px;
 	height: 100px;
 	margin: 0 auto;
+	margin-bottom: 30px;
 	border-style: solid;
 	border-color: #0afd93;
 	border-width: 1px;
@@ -205,6 +202,8 @@ button {
 	display: flex;
 	flex-direction: column;
 	text-align: center;
+	margin-top: 20px;
+	gap: 20px
 }
 
 .container_wrap {
@@ -232,15 +231,11 @@ button {
 	border-radius: 10px;
 }
 
-.search_bar > input {
-	all: unset
-}
-
 .search_bar {
 	position: fixed;
 	left: 50%;
   transform: translateX(-50%);
-	top: 14px;
+	top: 16.5px;
 	width: 130px;
 	height: 25px;
 	border-style: solid;
@@ -251,7 +246,9 @@ button {
 }
 
 .search_bar > input {
+	all: unset;
 	text-align: center;
+	font-style: italic;
 }
 
 .card_container {
@@ -288,15 +285,13 @@ button {
 	background-color: whitesmoke;
 	padding: 10px;
 	border-radius: 10px;
+	margin-bottom: 5px;
 }
 
-/* .foundation_card {
-	text-align: center;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	width: 350px;
-} */
+.foundation_card {
+ width: 150px;
+ height: 170px;
+}
 
 .card_text {
 	display: flex;
@@ -364,14 +359,16 @@ button {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+	gap: 10px;
 	width: 350px;
 	margin: 0 auto;
+	margin-top: 20px;
 	margin-bottom: 30px;
 }
 
 .filters_container > button {
 	border-style: solid;
-	border-width: 1px;
+	border-width: 0.5px;
 	border-radius: 25px;
 	padding: 5px;
 }
@@ -398,4 +395,20 @@ button {
 	width: 100%;
 	background-color: rgba(255,255,255,0.2);
 	margin-bottom: 15px;
+}
+
+.small_margin {
+	margin: 10px;
+}
+
+.create_btn {
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 10px;
+	border-color: #0afd93;
+	background-color: rgba(255,255,255,0.2);
+	padding: 10px;
+	width: 200px;
+	align-self: center;
+	margin: 40px;
 }
