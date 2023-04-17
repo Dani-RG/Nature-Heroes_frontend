@@ -77,7 +77,8 @@ export default function AnimalNew() {
         <label>Database link:</label>
         <input type='text' name='database_link' value={newAnimal.database_link} onChange={handleChange} required />
           
-        <button type='submit' className='green_btn'>Submit</button>
+        <button type='submit' className='green_btn small_margin'>Submit</button>
+        <button onClick={() => navigate(-1)} className='red_btn small_margin'>Go back</button>
       </form>
       {error && <p>Something went wrong.</p>}
     </div>

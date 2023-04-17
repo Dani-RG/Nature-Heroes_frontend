@@ -77,18 +77,9 @@ export default function ProjectNew() {
   return (
     <div className='card_container'>
       <h2 className='bigger_text bolder_text small_margin'>Create new project</h2>
-      <form onSubmit={handleSubmit} className='edit_form'>
-        <label>Foundation:</label>
-        <select name='foundation' value={newProject.foundation} onChange={handleChange} required>
-          <option value=''>Select a foundation</option>
-          {foundations.map((foundation) => (
-            <option key={foundation._id} value={foundation._id}>
-              {foundation.name}
-            </option>
-          ))}
-        </select>
+      <form onSubmit={handleSubmit} className='edit_form small_margin'>
         
-        <label>Animal:</label>
+        <label className='small_margin'>Animal:</label>
         <select name='animal' value={newProject.animal} onChange={handleChange} required>
           <option value=''>Select an animal</option>
           {animals.map((animal) => (
@@ -97,8 +88,19 @@ export default function ProjectNew() {
             </option>
           ))}
         </select>
+
+        <label className='small_margin'>Foundation:</label>
+        <select name='foundation' value={newProject.foundation} onChange={handleChange} required>
+          <option value=''>Select a foundation</option>
+          {foundations.map((foundation) => (
+            <option key={foundation._id} value={foundation._id}>
+              {foundation.name}
+            </option>
+          ))}
+        </select>
           
-          <button type='submit' className='green_btn'>Submit</button>
+        <button type='submit' className='green_btn small_margin'>Submit</button>
+        <button onClick={() => navigate(-1)} className='red_btn small_margin'>Go back</button>
       </form>
       {error && <p>Something went wrong.</p>}
     </div>

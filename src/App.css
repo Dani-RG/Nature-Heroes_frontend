@@ -411,7 +411,7 @@ button {
 	gap: 5px;
 }
 
-.edit_form > input, textarea {
+.edit_form > input, textarea, select {
 	all: unset;
 	border-style: solid;
 	border-width: 0.5px;
