@@ -51,7 +51,7 @@ npm run start
 
 ## Useful links
 
-- [Presentation slides]()
+- [Presentation slides](https://slides.com/daniel_rg/presentacion-daniel-rondon)
 - [Backend repository](https://github.com/Dani-RG/backend-template-m3)
 - [Backend deploy](https://nature-heroes.fly.dev/)
 - [Deployed app](https://nature-heroes.netlify.app/)
