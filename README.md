@@ -5,7 +5,7 @@
 Nature Heroes is an app developed to awake concience about nature conservation and give the user a tool to learn and help.
 
 > Add a picture (logo, design, actual screen, gif, etc, whichever you prefer.)
-![](./public/images/Nature_Heroes_Screenshot.png)
+![Logo](./public/images/Nature_Heroes_Screenshot.png)
 
 ---
 ## Instructions
