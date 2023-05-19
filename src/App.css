@@ -51,7 +51,7 @@ body {
 }
 
 html {
-	color: white;
+	color: whitesmoke;
 	width: 100vw;
 	height: 100vh;
 }
@@ -457,4 +457,14 @@ button {
 	stroke: white;
   stroke-width: 1px;
   fill: none
+}
+
+.pay_card {
+	background-color: white;
+	width: 350px;
+	align-self: center;
+}
+
+.buy_btn {
+	background-color: #00b667;
 }
