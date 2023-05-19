@@ -22,6 +22,7 @@ import ProjectDetail from './views/ProjectDetail';
 import DonationNew from './views/DonationNew';
 import UserDetail from './views/UserDetail';
 import UserEdit from './views/UserEdit';
+import CreditsBuy from './views/CreditsBuy';
 
 function App() {
   const [animalId, setAnimal] = useState({});
@@ -54,6 +55,7 @@ function App() {
         <Route path='/projects/new' element={<IsPrivate><ProjectNew /></IsPrivate>} />
         <Route path='/me' element={<UserDetail />} />
         <Route path='/users/edit/me' element={<UserEdit />} />
+        <Route path='/credits/buy' element={<CreditsBuy />} />
         <Route path='/error' element={<ErrorPage />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
