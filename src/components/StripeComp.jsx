@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {loadStripe} from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import creditsService from '../services/creditsService';
@@ -10,20 +10,30 @@ export default function StripeComp() {
 
     const stripe = useStripe();
     const elements = useElements();
-    const amount = 100;
+    const amount = 10000;
+    const [loading, setLoading] = useState(false)
     
     const handleCheckout = async () => {
       const {error, paymentMethod} = await stripe.createPaymentMethod({
         type: 'card',
         card: elements.getElement(CardElement)
-      })
+      });
+      setLoading(true);
 
       if (!error) {
         const { id } = paymentMethod;
-        const data = await creditsService.checkout(
-          {id, amount}
-        )
-        console.log(data)
+
+        try {
+          const data = await creditsService.checkout(
+            {id, amount}
+          )
+          console.log(data)
+          
+          elements.getElement(CardElement).clear();
+        } catch (error) {
+          console.log(error);
+        }
+        setLoading(false);
       }
     }
 
@@ -36,8 +46,10 @@ export default function StripeComp() {
     return <form onSubmit={handleSubmit} className='pay_card'>
       <h3>100 credits</h3>
       <CardElement />
-      <button className='buy_btn'>
-        Buy
+      <button className='buy_btn' disabled={!stripe}>
+        {loading ? (
+          <div>Loading...</div>
+        ) : 'Buy'}
       </button>
     </form>
   }
