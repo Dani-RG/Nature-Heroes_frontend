@@ -3,6 +3,6 @@ import StripeComp from '../components/StripeComp';
 
 export default function CreditsBuy() {
   return (
-    <StripeComp />
+    <StripeComp className='stripe_card'/>
   )
 }
