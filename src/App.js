@@ -24,6 +24,7 @@ import UserDetail from "./views/UserDetail";
 import UserEdit from "./views/UserEdit";
 import CreditsBuy from "./views/CreditsBuy";
 import CreditsItems from "./views/CreditsItems";
+import { OptionProvider } from "./context/OptionContext";
 
 function App() {
   const [animalId, setAnimal] = useState({});
@@ -31,97 +32,91 @@ function App() {
   const handleAnimal = (animalId) => {
     setAnimal(animalId);
   };
-  
-  const [amount, setAmount] = useState(1);
-  
-  const handleOptionSelect = (amount) => {
-    setAmount(amount);
-  };
-  
-  console.log(amount);
 
   return (
     <div className="App">
       <Toaster />
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-        <Route
-          path="/create"
-          element={
-            <IsPrivate>
-              <CreateView />
-            </IsPrivate>
-          }
-        />
-        <Route path="/animals" element={<Animals />} />
-        <Route
-          path="/animals/new"
-          element={
-            <IsPrivate>
-              <AnimalNew />
-            </IsPrivate>
-          }
-        />
-        <Route
-          path="/animals/:animalId"
-          element={<AnimalDetail handleAnimal={handleAnimal} />}
-        />
-        <Route
-          path="/animals/edit/:animalId"
-          element={
-            <IsPrivate>
-              <AnimalEdit />
-            </IsPrivate>
-          }
-        />
-        <Route path="/foundations" element={<Foundations />} />
-        <Route
-          path="/foundations/new"
-          element={
-            <IsPrivate>
-              <FoundationNew />
-            </IsPrivate>
-          }
-        />
-        <Route path="/projects/:projectId" element={<ProjectDetail />} />
-
-        <Route
-          path="/projects/selection"
-          element={<ProjectSelection animalId={animalId} />}
-        >
+      <OptionProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
           <Route
-            path="/projects/selection/donations/:projectId"
-            element={<DonationNew />}
+            path="/create"
+            element={
+              <IsPrivate>
+                <CreateView />
+              </IsPrivate>
+            }
           />
-        </Route>
+          <Route path="/animals" element={<Animals />} />
+          <Route
+            path="/animals/new"
+            element={
+              <IsPrivate>
+                <AnimalNew />
+              </IsPrivate>
+            }
+          />
+          <Route
+            path="/animals/:animalId"
+            element={<AnimalDetail handleAnimal={handleAnimal} />}
+          />
+          <Route
+            path="/animals/edit/:animalId"
+            element={
+              <IsPrivate>
+                <AnimalEdit />
+              </IsPrivate>
+            }
+          />
+          <Route path="/foundations" element={<Foundations />} />
+          <Route
+            path="/foundations/new"
+            element={
+              <IsPrivate>
+                <FoundationNew />
+              </IsPrivate>
+            }
+          />
+          <Route path="/projects/:projectId" element={<ProjectDetail />} />
 
-        <Route
-          path="/projects/new"
-          element={
-            <IsPrivate>
-              <ProjectNew />
-            </IsPrivate>
-          }
-        />
-        <Route path="/me" element={<UserDetail />} />
-        <Route path="/users/edit/me" element={<UserEdit />} />
-        <Route
-          path="/credits"
-          element={<CreditsItems onSelect={handleOptionSelect} />}
-        />
-        <Route
-          path="/checkout"
-          element={<CreditsBuy selectedOption={amount} />}
-        />
-        <Route path="/error" element={<ErrorPage />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+          <Route
+            path="/projects/selection"
+            element={<ProjectSelection animalId={animalId} />}
+          >
+            <Route
+              path="/projects/selection/donations/:projectId"
+              element={<DonationNew />}
+            />
+          </Route>
+
+          <Route
+            path="/projects/new"
+            element={
+              <IsPrivate>
+                <ProjectNew />
+              </IsPrivate>
+            }
+          />
+          <Route path="/me" element={<UserDetail />} />
+          <Route path="/users/edit/me" element={<UserEdit />} />
+
+          <Route
+            path="/credits"
+            element={<CreditsItems />}
+          />
+          <Route
+            path="/checkout"
+            element={<CreditsBuy />}
+          />
+          <Route path="/error" element={<ErrorPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </OptionProvider>
     </div>
   );
 }
-
 
 export default App;

@@ -224,7 +224,7 @@ button {
 
 .nav_menu {
   background-color: #1a1840;
-  width: 135px;
+  width: 120px;
   height: 100vh;
   position: fixed;
   top: 0;
@@ -246,7 +246,7 @@ button {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 8px 20px 8px 20px;
+  padding: 8px 15px;
   height: 60px;
 }
 

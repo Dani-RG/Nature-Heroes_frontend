@@ -7,21 +7,20 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import creditsService from "../services/creditsService";
+import { useOption } from '../context/OptionContext';
 
-export default function StripeComp(props) {
+export default function StripeComp() {
   const stripePromise = loadStripe(
     "pk_test_51N9WFJHupFniTzZZOpGJO3AAmCXXfwPWhhr6cgjooKjieFRh8taHug4OfE6wIdEbYtRCPkkmgyTU17ysz5CwVbIj00aTgMjQQW",
     { locale: "en" }
   );
-
-  const { amount } = props;
+  
+  const { selectedOption } = useOption();
 
   const CheckoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
-    //const amount = 10000;
-    const articleSelected = amount;
-    console.log(`the amount is ${amount}`);
+    const amount = selectedOption;
     const [loading, setLoading] = useState(false);
 
     const handleCheckout = async () => {
@@ -54,7 +53,7 @@ export default function StripeComp(props) {
     return (
       <form onSubmit={handleSubmit} className="stripe_card">
         <h3>Article:</h3>
-        <h3>{articleSelected}</h3>
+        <h3>{selectedOption}</h3>
         <CardElement
           options={{
             style: {

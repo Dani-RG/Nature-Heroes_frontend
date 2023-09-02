@@ -1,13 +1,11 @@
 import React from "react";
 import StripeComp from "../components/StripeComp";
 
-export default function CreditsBuy(selectedOption) {
-  const amount = selectedOption.selectedOption;
-  console.log(amount);
+export default function CreditsBuy() {
 
   return (
     <div>
-      <StripeComp amount={amount} className="stripe_card" />
+      <StripeComp className="stripe_card" />
       <div className="test_card">
         <h3>Test Card:</h3>
         <div className="test_card_data">
