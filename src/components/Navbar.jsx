@@ -38,6 +38,7 @@ export default function Navbar() {
                 {isLoggedIn && <li className='nav_text'><button onClick={() => logOutUser()}>Log out</button></li>}
                 {isLoggedIn && <li className='nav_text'><NavLink to='/animals'>Animals</NavLink></li>}
                 {isLoggedIn && <li className='nav_text'><NavLink to='/foundations'>Foundts.</NavLink></li>}
+                {isLoggedIn && <li className='nav_text'><NavLink to='/credits'>Buy credits</NavLink></li>}
 
                 {/* ADMIN */}
                 {isLoggedIn && user.role === 'admin' && <li className='nav_text'><NavLink to='/create'>Create</NavLink></li>}

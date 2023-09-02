@@ -1,21 +1,32 @@
-import React, { useState } from 'react';
-import { loadStripe } from '@stripe/stripe-js';
-import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import creditsService from '../services/creditsService';
+import React, { useState } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import {
+  Elements,
+  CardElement,
+  useStripe,
+  useElements,
+} from "@stripe/react-stripe-js";
+import creditsService from "../services/creditsService";
 
-export default function StripeComp() {
-  const stripePromise = loadStripe('pk_test_51N9WFJHupFniTzZZOpGJO3AAmCXXfwPWhhr6cgjooKjieFRh8taHug4OfE6wIdEbYtRCPkkmgyTU17ysz5CwVbIj00aTgMjQQW', {locale: 'en'});
+export default function StripeComp(props) {
+  const stripePromise = loadStripe(
+    "pk_test_51N9WFJHupFniTzZZOpGJO3AAmCXXfwPWhhr6cgjooKjieFRh8taHug4OfE6wIdEbYtRCPkkmgyTU17ysz5CwVbIj00aTgMjQQW",
+    { locale: "en" }
+  );
+
+  const { amount } = props;
 
   const CheckoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
-    const amount = 10000;
-    const article = '100 credits';
+    //const amount = 10000;
+    const articleSelected = amount;
+    console.log(`the amount is ${amount}`);
     const [loading, setLoading] = useState(false);
 
     const handleCheckout = async () => {
       const { error, paymentMethod } = await stripe.createPaymentMethod({
-        type: 'card',
+        type: "card",
         card: elements.getElement(CardElement),
       });
       setLoading(true);
@@ -43,31 +54,31 @@ export default function StripeComp() {
     return (
       <form onSubmit={handleSubmit} className="stripe_card">
         <h3>Article:</h3>
-        <h3>{article}</h3>
+        <h3>{articleSelected}</h3>
         <CardElement
           options={{
             style: {
               base: {
-                iconColor: '#c4f0ff',
-                color: '#0afd93',
-                fontWeight: '500',
-                fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
-                fontSize: '13px',
-                lineHeight: '40px',
-                fontSmoothing: 'antialiased',
-                '::placeholder': {
-                  color: '#31b8fc'
+                iconColor: "#c4f0ff",
+                color: "#0afd93",
+                fontWeight: "500",
+                fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
+                fontSize: "13px",
+                lineHeight: "40px",
+                fontSmoothing: "antialiased",
+                "::placeholder": {
+                  color: "#31b8fc",
                 },
               },
               invalid: {
-                iconColor: '#FFC7EE',
-                color: '#FFC7EE',
+                iconColor: "#FFC7EE",
+                color: "#FFC7EE",
               },
             },
           }}
         />
         <button className="buy_btn" disabled={!stripe}>
-          {loading ? <div>Loading...</div> : 'Buy'}
+          {loading ? <div>Loading...</div> : "Buy"}
         </button>
       </form>
     );
