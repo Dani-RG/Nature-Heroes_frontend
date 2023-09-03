@@ -1,9 +1,9 @@
 import React from "react";
 import { useOption } from "../context/OptionContext";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 export default function CreditsItems() {
-  const { selectedOption, setOption } = useOption();
+  const { setOption } = useOption();
   const navigate = useNavigate();
 
   const handleOptionChange = (event) => {
@@ -14,14 +14,28 @@ export default function CreditsItems() {
 
   return (
     <div className="container_centered">
-      <h3 className="bigger_text bolder_text small_margin">SELECT ITEM:</h3>
-
-      <select value={selectedOption || ""} onChange={handleOptionChange}>
-        <option value="">Select an option</option>
-        <option value={100}>100 credits</option>
-        <option value={500}>500 credits</option>
-        <option value={1000}>1000 credits</option>
-      </select>
+      <h3 className="bigger_text bolder_text small_margin">SELECT AMOUNT:</h3>
+      <button
+        className="bigger_text bolder_text create_btn"
+        value={100}
+        onClick={handleOptionChange}
+      >
+        100 credits
+      </button>
+      <button
+        className="bigger_text bolder_text create_btn"
+        value={500}
+        onClick={handleOptionChange}
+      >
+        500 credits
+      </button>
+      <button
+        className="bigger_text bolder_text create_btn"
+        value={1000}
+        onClick={handleOptionChange}
+      >
+        1000 credits
+      </button>
     </div>
   );
 }
